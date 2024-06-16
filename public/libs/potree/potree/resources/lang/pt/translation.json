@@ -1,0 +1,125 @@
+{
+  "tb": {
+    "navigation_opt": "Navegação",
+    "rendering_opt": "Aparência",
+    "tools_opt": "Ferramentas",
+    "measurements_opt": "Medições",
+    "clipping_opt": "Recorte",
+    "annotations_opt": "Anotações",
+    "materials_opt": "Materiais",
+    "scene_opt": "Cena",
+    "classifications_opt": "Classificações",
+    "classification_filter_opt": "Filtro de Classificação",
+    "filters_opt": "Filtros",
+    "parameters_opt": "Outras Configurações",
+    "about_opt": "Sobre"
+  },
+  "tt": {
+    "angle_measurement": "Medição de Ângulo",
+    "point_measurement": "Medição de Ponto",
+    "distance_measurement": "Medição de Distância",
+    "height_measurement": "Medição de Altura",
+    "circle_measurement": "Medição de Círculo",
+    "area_measurement": "Medição de Área",
+    "volume_measurement": "Medição de Volume",
+    "height_profile": "Perfil de Altura",
+    "annotation": "Anotação",
+    "clip_volume": "Recorte de Volume",
+    "clip_polygon": "Recorte de Polígono",
+    "screen_clip_box": "Desenhar uma caixa de seleção. Requer que você esteja no modo de câmera ortográfica!",
+    "clip_plane_x": "Plano de Recorte no Eixo X",
+    "clip_plane_y": "Plano de Recorte no Eixo Y",
+    "clip_plane_z": "Plano de Recorte no Eixo Z",
+    "remove_all_measurement": "Remover Todas as Medições",
+    "left_view_control": "Vista Esquerda",
+    "right_view_control": "Vista Direita",
+    "front_view_control": "Vista Frontal",
+    "back_view_control": "Vista Traseira",
+    "top_view_control": "Vista Superior",
+    "bottom_view_control": "Vista Inferior",
+    "focus_control": "Enquadrar",
+    "orbit_control": "Controle de Órbita",
+    "flight_control": "Controle de Voo",
+    "heli_control": "Controle de Helicóptero",
+    "earth_control": "Controle Terrestre",
+    "perspective_camera_control": "Câmera Perspectiva",
+    "orthographic_camera_control": "Câmera Ortográfica",
+    "navigation_cube_control": "Cubo de Navegação",
+    "remove_all_clipping_volumes": "Remover Todos os Volumes de Recorte",
+    "compass": "Bússola",
+    "camera_animation": "Animação de Câmera"
+  },
+  "appearance": {
+    "nb_max_pts": "Qualidade dos Pontos",
+    "point_size": "Tamanho dos Pontos",
+    "min_point_size": "Tamanho Mínimo",
+    "point_opacity": "Opacidade",
+    "field_view": "Campo de Visão",
+    "point_size_type": "Dimensionamento dos Pontos",
+    "point_material": "Materiais",
+    "elevation_range": "Faixa de Elevação",
+    "extra_range": "Faixa Escalar",
+    "point_quality": "Qualidade",
+    "point_shape": "Forma",
+    "edl_radius": "Raio",
+    "edl_strength": "Força",
+    "edl_opacity": "Opacidade",
+    "edl_enable": "Habilitar",
+    "min_node_size": "Tamanho Mínimo do Nó",
+    "clip_mode": "Modo de Recorte",
+    "move_speed": "Velocidade",
+    "skybox": "Céu",
+    "bottom_lock": "Manter acima do solo",
+    "box": "Caixa",
+    "length_unit": "Unidade de Comprimento",
+    "freeze": "Travar Visão",
+    "language": "Idioma",
+    "backface_culling": "Culling de Faces Traseiras"
+  },
+  "backgrounds": {
+    "label": "Plano de Fundo",
+    "skybox": "Céu",
+    "gradient": "Gradiente",
+    "black": "Preto",
+    "white": "Branco"
+  },
+  "measurements": {
+    "clip": "recortar",
+    "show": "Mostrar",
+    "hide": "Esconder"
+  },
+  "annotations": {
+    "show3D": "mostrar em 3D",
+    "showMap": "mostrar no mapa"
+  },
+  "profile": {
+    "nb_points": "Número de Pontos",
+    "title": "Perfil de Altura",
+    "save_las": "Salvar LAS(3D)",
+    "save_ortho": "Salvar CSV(2D)"
+  },
+  "scene": {
+    "export": "Exportar",
+    "objects": "Objetos",
+    "camera_position": "Posição da Câmera",
+    "camera_target": "Alvo da Câmera",
+    "point_clouds": "Nuvens de Pontos",
+    "measurements": "Medições",
+    "annotations": "Anotações",
+    "other": "Outros",
+    "vectors": "Vetores",
+    "images": "Imagens"
+  },
+  "filters": {
+    "return_number": "Número de Retorno",
+    "number_of_returns": "Número de Retornos",
+    "gps_min": "mín",
+    "gps_max": "máx",
+    "gps_time": "Tempo GPS",
+    "show-hide": "Mostrar/esconder todos"
+  },
+  "settings": {
+    "language": "Idioma"
+  }
+}
+

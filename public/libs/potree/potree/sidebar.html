@@ -1,0 +1,86 @@
+<div id="sidebar_root" class="">
+  <div>
+    <div id="potree_menu" class="accordion">
+      <!-- APPEARANCE -->
+      <h3 id="menu_appearance"><span data-i18n="tb.rendering_opt"></span></h3>
+      <div>
+        <ul class="pv-menu-list">
+          <li>
+            <span data-i18n="appearance.nb_max_pts"></span>:
+            <span id="lblPointBudget"></span>
+            <div id="sldPointBudget"></div>
+          </li>
+          <li>
+            <span data-i18n="appearance.field_view"></span>:
+            <span id="lblFOV"></span>
+            <div id="sldFOV"></div>
+          </li>
+
+          <div class="divider"><span data-i18n="backgrounds.label"></span></div>
+
+          <li>
+            <selectgroup id="background_options">
+              <option id="background_options_skybox" value="skybox">
+                <span data-i18n="backgrounds.skybox"></span>
+              </option>
+              <option id="background_options_gradient" value="gradient">
+                <span data-i18n="backgrounds.gradient"></span>
+              </option>
+              <option id="background_options_black" value="black">
+                <span data-i18n="backgrounds.black"></span>
+              </option>
+              <option id="background_options_white" value="white">
+                <span data-i18n="backgrounds.white"></span>
+              </option>
+            </selectgroup>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TOOLS -->
+      <h3 id="menu_tools"><span data-i18n="tb.tools_opt"></span></h3>
+      <div class="pv-menu-list">
+        <div class="divider"><span data-i18n="tb.measurements_opt"></span></div>
+
+        <li id="tools"></li>
+
+        <div class="divider"><span>Labels</span></div>
+
+        <li style="margin-bottom: 15px">
+          <selectgroup id="measurement_options_show">
+            <option value="SHOW" id="measurement_options_show_yes">
+              <span data-i18n="measurements.show"></span>
+            </option>
+            <option value="HIDE" id="measurement_options_show_no">
+              <span data-i18n="measurements.hide"></span>
+            </option>
+          </selectgroup>
+        </li>
+
+        <div class="divider"><span data-i18n="tb.navigation_opt"></span></div>
+
+        <li id="navigation"></li>
+      </div>
+
+      <!-- SCENE -->
+      <h3 id="menu_scene"><span data-i18n="tb.scene_opt"></span></h3>
+      <div class="pv-menu-list">
+        <div id="scene_export"></div>
+
+        <div class="divider"><span data-i18n="scene.objects"></span></div>
+
+        <div id="scene_objects"></div>
+      </div>
+
+      <!-- Classification -->
+      <h3 id="menu_filters"><span data-i18n="tb.filters_opt"></span></h3>
+      <div>
+        <div class="divider">
+          <span data-i18n="tb.classifications_opt"></span>
+        </div>
+        <ul id="classificationList" class="pv-menu-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+

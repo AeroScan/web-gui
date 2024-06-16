@@ -1,0 +1,126 @@
+{
+  "login": {
+    "title": "Login",
+    "email": {
+      "label": "Email",
+      "required": "E-mail is required."
+    },
+    "password": {
+      "label": "Password",
+      "required": "Password is required."
+    },
+    "button": "Login",
+    "error": "Invalid credentials",
+    "success": "Successfully authenticated as {{email}}"
+  },
+  "tabs": {
+    "files": {
+      "label": "Files",
+      "load-cloud": "Load Cloud",
+      "view-cloud": "View Cloud",
+      "view-mesh": "View Mesh",
+      "save-cloud": "Save Cloud",
+      "save-mesh": "Save Mesh",
+      "save-cad": "Save CAD",
+      "save-results": "Save Results"
+    },
+    "pre-processing": {
+      "label": "Pré-processing",
+      "crop-box": "Crop Box",
+      "voxel-grid": "Voxel Grid",
+      "statistical-removal": "Statistical Removal",
+      "normal-estimation": "Normal Estimation",
+      "reescale": "Reescale",
+      "centralization": "Centralization",
+      "alignment": "Alignment",
+      "noise-add": "Noise Add"
+    },
+    "processing": {
+      "label": "Processing",
+      "efficient-ransac": "Efficient RANSAC",
+      "aeroscan": "AeroScan Algorithm"
+    },
+    "help": {
+      "label": "Help",
+      "tour": "Interface Tour",
+      "about": "About Software",
+      "tutorials": "Tutorials",
+      "switch-language": "Switch Language"
+    },
+    "admin": {
+      "label": "Admin",
+      "generate-password": "Generate Password"
+    },
+    "account": {
+      "label": "Account",
+      "logout": "Logout"
+    }
+  },
+  "modals": {
+    "submit": "Run",
+    "cancel": "Cancel",
+    "efficientRansac": {
+      "title": "Efficient Ransac",
+      "blockDescription": "You need to run the normal estimation filter before running the Efficient Ransac"
+    },
+    "cropBox": {
+      "title": "Crop Box",
+      "blockDescription": "You need to load a cloud before running the Crop Box"
+    },
+    "voxelGrid": {
+      "title": "Voxel Grid",
+      "blockDescription": "You need to load a cloud before running the Voxel Grid"
+    },
+    "statisticalRemoval": {
+      "title": "Statistical Removal",
+      "blockDescription": "You need to load a cloud before running the Statistical Removal"
+    },
+    "normalEstimation": {
+      "title": "Normal Estimation",
+      "blockDescription": "You need to load a cloud before running the Normal Estimation"
+    },
+    "reescale": {
+      "title": "Reescale",
+      "blockDescription": "You need to load a cloud before running the Reescale"
+    },
+    "centralization": {
+      "title": "Centralization",
+      "blockDescription": "You need to load a cloud before running the Centralization"
+    },
+    "alignment": {
+      "title": "Alignment",
+      "blockDescription": "You need to load a cloud before running the Alignment"
+    },
+    "noiseAdd": {
+      "title": "Noise Add",
+      "blockDescription": "You need to load a cloud before running the Noise Add"
+    },
+    "generatePassword": {
+      "submit": "Generate Password",
+      "title": "Generate Password"
+    }
+  },
+  "home": {
+    "text": "Upload a point cloud or a mesh file in Files -> Load Cloud to view and process it."
+  },
+  "status": {
+    "started": "Application started",
+    "cloud-loaded": "Cloud loaded",
+    "load-cloud-failed": "Error loading cloud"
+  },
+  "notifications": {
+    "loading": {
+      "load-cloud": "Loading cloud"
+    },
+    "success": {
+      "load-cloud": "Cloud successfully loaded!"
+    },
+    "warning": {
+      "cloud-not-loaded": "Please, upload a cloud to perform this action.",
+      "mesh-not-loaded": "Please, run the primitivation to generate a mesh to perform this action."
+    },
+    "error": {
+      "load-cloud": "Error loading cloud."
+    }
+  }
+}

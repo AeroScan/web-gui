@@ -1,0 +1,126 @@
+{
+  "login": {
+    "title": "Login",
+    "email": {
+      "label": "Email",
+      "required": "Por favor, insira seu e-mail."
+    },
+    "password": {
+      "label": "Password",
+      "required": "Por favor, insira sua senha."
+    },
+    "button": "Entrar",
+    "error": "Credenciais inválidas",
+    "success": "Autenticado com sucesso como {{email}}"
+  },
+  "tabs": {
+    "files": {
+      "label": "Arquivos",
+      "load-cloud": "Carregar Nuvem",
+      "view-cloud": "Visualizar Nuvem",
+      "view-mesh": "Visualizar Mesh",
+      "save-cloud": "Salvar Nuvem",
+      "save-mesh": "Salvar Mesh",
+      "save-cad": "Salvar CAD",
+      "save-results": "Salvar Resultados"
+    },
+    "pre-processing": {
+      "label": "Pré-processamento",
+      "crop-box": "Crop Box",
+      "voxel-grid": "Voxel Grid",
+      "statistical-removal": "Statistical Removal",
+      "normal-estimation": "Normal Estimation",
+      "reescale": "Reescale",
+      "centralization": "Centralization",
+      "alignment": "Alignment",
+      "noise-add": "Noise Add"
+    },
+    "processing": {
+      "label": "Processamento",
+      "efficient-ransac": "Efficient RANSAC",
+      "aeroscan": "Algoritmo AeroScan"
+    },
+    "help": {
+      "label": "Ajuda",
+      "tour": "Tour da Interface",
+      "about": "Sobre o Software",
+      "tutorials": "Tutoriais",
+      "switch-language": "Mudar Idioma"
+    },
+    "admin": {
+      "label": "Configuração",
+      "generate-password": "Gerar Senha"
+    },
+    "account": {
+      "label": "Conta",
+      "logout": "Sair"
+    }
+  },
+  "modals": {
+    "submit": "Processar",
+    "cancel": "Cancelar",
+    "efficientRansac": {
+      "title": "Efficient Ransac",
+      "blockDescription": "Você precisa executar o Normal Estimation antes de rodar o Efficient Ransac"
+    },
+    "cropBox": {
+      "title": "Crop Box",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Crop Box"
+    },
+    "voxelGrid": {
+      "title": "Voxel Grid",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Voxel Grid"
+    },
+    "statisticalRemoval": {
+      "title": "Statistical Removal",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Statistical Removal"
+    },
+    "normalEstimation": {
+      "title": "Normal Estimation",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Normal Estimation"
+    },
+    "reescale": {
+      "title": "Reescale",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Reescale"
+    },
+    "centralization": {
+      "title": "Centralization",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Centralization"
+    },
+    "alignment": {
+      "title": "Alignment",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Alignment"
+    },
+    "noiseAdd": {
+      "title": "Noise Add",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Noise Add"
+    },
+    "generatePassword": {
+      "submit": "Gerar Senha",
+      "title": "Gerar Senha"
+    }
+  },
+  "home": {
+    "text": "Carregue uma nuvem de pontos ou mesh em Arquivos -> Carregar Nuvem para visualizá-la e processá-la."
+  },
+  "status": {
+    "started": "Aplicação inicializada",
+    "cloud-loaded": "Nuvem carregada",
+    "load-cloud-failed": "Falha ao carregar nuvem"
+  },
+  "notifications": {
+    "loading": {
+      "load-cloud": "Carregando nuvem"
+    },
+    "success": {
+      "load-cloud": "Nuvem carregada com sucesso!"
+    },
+    "warning": {
+      "cloud-not-loaded": "Por favor, carregue uma nuvem antes de executar esta ação.",
+      "mesh-not-loaded": "Por favor, execute a primitivação para gerar uma mesh antes de executar esta ação."
+    },
+    "error": {
+      "load-cloud": "Erro ao carregar nuvem."
+    }
+  }
+}
