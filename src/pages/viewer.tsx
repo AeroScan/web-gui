@@ -4,6 +4,7 @@ import { FC, useEffect } from "react";
 /* COMPONENTS */
 import PrivatePage from "../components/privatePage";
 import Loading from "../components/loading";
+import InterfaceTour from "../components/tour";
 
 /* CONTAINERS */
 import { Outlet } from "react-router";
@@ -23,10 +24,12 @@ const ViewerPage: FC = () => {
 
   return (
     <PrivatePage className="w-screen h-screen bg-light-grey">
-      <Header />
-      <Outlet />
-      <Footer />
-      {loading ? <Loading text={loading} /> : null}
+      <InterfaceTour>
+        <Header />
+        <Outlet />
+        <Footer />
+        {loading ? <Loading text={loading} /> : null}
+      </InterfaceTour>
     </PrivatePage>
   );
 };

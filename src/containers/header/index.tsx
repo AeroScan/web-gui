@@ -24,24 +24,28 @@ const Header: FC = () => {
       key: "files",
       active: true,
       label: t("tabs.files.label"),
+      step: "second-step",
       children: <FilesTab />,
     },
     {
       active: true,
       key: "pre-processing",
       label: t("tabs.pre-processing.label"),
+      step: "third-step",
       children: <PreProcessingTab />,
     },
     {
       active: true,
       key: "processing",
       label: t("tabs.processing.label"),
+      step: "fourth-step",
       children: <ProcessingTab />,
     },
     {
       key: "help",
       active: true,
       label: t("tabs.help.label"),
+      step: "fifth-step",
       children: <HelpTab />,
     },
     {
@@ -49,17 +53,19 @@ const Header: FC = () => {
       // active: localStorage.getItem("authEmail") === "admin@admin.com",
       active: true,
       label: t("tabs.admin.label"),
+      step: "sixth-step",
       children: <AdminTab />,
     },
     {
       active: true,
       key: "account",
       label: t("tabs.account.label"),
+      step: "seventh-step",
       children: <AccountTab />,
     },
   ];
 
-  return <Tabs type="card" items={items.filter((i) => i.active)} />;
+  return <Tabs type="card" items={items.filter((i) => i.active)} className={`${items.filter((i) => i.step)}`} />;
 };
 
 export default Header;

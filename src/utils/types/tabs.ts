@@ -4,6 +4,7 @@ export type TTabItem = {
   key: string;
   active: boolean;
   label: ReactNode;
+  step: string;
   children: ReactNode;
 };
 

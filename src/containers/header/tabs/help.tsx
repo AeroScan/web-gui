@@ -7,6 +7,7 @@ import HeaderTab from "../../../components/headerTab";
 /* UTILS */
 import { useTranslation } from "react-i18next";
 import { TSupportedLanguages } from "../../../utils/constants/languages";
+import { useTour } from "@reactour/tour";
 
 /* ASSETS */
 import tourIcon from "../../../assets/icons/help/tour.svg";
@@ -16,6 +17,7 @@ import languageIcon from "../../../assets/icons/help/language.svg";
 
 const HelpTab: FC = () => {
   const { t, i18n } = useTranslation();
+  const { setIsOpen } = useTour();
 
   const handleLanguageSwitch = (lng: TSupportedLanguages) => {
     i18n.changeLanguage(lng);
@@ -29,7 +31,7 @@ const HelpTab: FC = () => {
           icon: tourIcon,
           key: "tour-button",
           label: t("tabs.help.tour"),
-          action: () => console.log(t("tabs.help.tour")),
+          action: () => setIsOpen(true),
         },
         {
           active: true,
