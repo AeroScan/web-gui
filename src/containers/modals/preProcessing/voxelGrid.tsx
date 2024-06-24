@@ -39,7 +39,9 @@ const VoxelGridModal: FC = () => {
       blockCondition={blockCondition}
       title={t("modals.voxelGrid.title")}
       blockConditionDescription={t("modals.voxelGrid.blockDescription")}
-    />
+    >
+      Teste
+    </FormModal>
   );
 };
 
