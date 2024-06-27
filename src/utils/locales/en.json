@@ -61,7 +61,30 @@
     "cancel": "Cancel",
     "efficientRansac": {
       "title": "Efficient Ransac",
-      "blockDescription": "You need to run the normal estimation filter before running the Efficient Ransac"
+      "subtitle": "Efficient RANSAC is an optimized version of the Random Sample Consensus algorithm, used for robust model fitting in the presence of outliers. Customize the algorithm parameters manually for accurate results.",
+      "blockDescription": "You need to run the normal estimation filter before running the Efficient Ransac",
+      "parameters": {
+        "probability": {
+          "label": "Probability",
+          "tooltip": "Controls the desired probability of finding a valid model. Lower values increase computation time but improve the likelihood of accurate results."
+        },
+        "minPoints": {
+          "label": "Min points",
+          "tooltip": "Specifies the minimum number of data points required to define a model. It influences the model's robustness and should be set according to data characteristics."
+        },
+        "clusterEpsilon": {
+          "label": "Cluster epsilon",
+          "tooltip": "Defines the maximum distance between points in the same cluster. Adjust it to group points closely related to the detected model."
+        },
+        "epsilon": {
+          "label": "Epsilon",
+          "tooltip": "Determines the tolerance for point-to-model distance. Smaller values provide a tighter fit, while larger values allow for more flexibility."
+        },
+        "normalThreshold": {
+          "label": "Normal threshold",
+          "tooltip": "Sets the threshold for accepting points based on their normal alignment with the model. Higher values require closer alignment, potentially filtering out noisy data."
+        }
+      }
     },
     "cropBox": {
       "title": "Crop Box",
@@ -69,7 +92,15 @@
     },
     "voxelGrid": {
       "title": "Voxel Grid",
-      "blockDescription": "You need to load a cloud before running the Voxel Grid"
+      "subtitle": "The Voxel Grid algorithm discretizes the point cloud into a 3D cubic structure for improved indexing and analysis. Manually specify the grid parameters to control voxel size and precision.",
+      "blockDescription": "You need to load a cloud before running the Voxel Grid",
+      "parameters": {
+        "leafSize": {
+          "label": "Leaf size",
+          "required": "Leaf size is required.",
+          "tooltip": "The Leaf Size parameter determines the size of the voxels (3D cubes) used for discretizing the point cloud. A smaller leaf size results in smaller voxels, providing a more detailed representation but requiring more memory and computation. Conversely, a larger leaf size yields larger voxels, reducing memory and computation requirements but potentially losing fine-grained detail. Adjust this parameter to strike a balance between detail and efficiency for your analysis."
+        }
+      }
     },
     "statisticalRemoval": {
       "title": "Statistical Removal",
@@ -77,7 +108,15 @@
     },
     "normalEstimation": {
       "title": "Normal Estimation",
-      "blockDescription": "You need to load a cloud before running the Normal Estimation"
+      "subtitle": "Normal Estimation calculates surface normals for each point in the cloud, essential for surface analysis and feature detection. Adjust the estimation parameters manually for precise normal vectors.",
+      "blockDescription": "You need to load a cloud before running the Normal Estimation",
+      "parameters": {
+        "radius": {
+          "label": "Radius",
+          "required": "Radius is required.",
+          "tooltip": "Defines the search radius for neighboring points when estimating normals. A larger radius considers points farther from the target point, potentially resulting in smoother but less localized normals. A smaller radius limits the influence to nearby points, yielding more detailed, localized normal vectors. Adjust this parameter to suit the level of detail needed for your analysis."
+        }
+      }
     },
     "reescale": {
       "title": "Reescale",
@@ -85,15 +124,25 @@
     },
     "centralization": {
       "title": "Centralization",
+      "subtitle": "Centralization is the process of repositioning the point cloud within a centered coordinate system. After applying it, you can utilize the Point Measurement tool within the point cloud visualization to check this functionality.",
       "blockDescription": "You need to load a cloud before running the Centralization"
     },
     "alignment": {
       "title": "Alignment",
+      "subtitle": "The Alignment algorithm facilitates the precise alignment of the point cloud, ensuring it is aligned to the center of the coordinate system and orientation. After applying it, you can utilize the Point Measurement tool within the point cloud visualization to check this functionality.",
       "blockDescription": "You need to load a cloud before running the Alignment"
     },
     "noiseAdd": {
       "title": "Noise Add",
-      "blockDescription": "You need to load a cloud before running the Noise Add"
+      "subtitle": "The Noise Add algorithm introduces random perturbations to the point cloud data, simulating noisy conditions or supporting testing purposes. Configure noise parameters manually to achieve the desired level of noise.",
+      "blockDescription": "You need to load a cloud before running the Noise Add",
+      "parameters": {
+        "limit": {
+          "label": "Limit",
+          "required": "Limit is required.",
+          "tooltip": "Sets the upper bound for adding noise to the point cloud. It controls the maximum magnitude of perturbations introduced, ensuring noise remains within manageable limits for accurate data simulation."
+        }
+      }
     },
     "generatePassword": {
       "submit": "Generate Password",
@@ -106,21 +155,58 @@
   "status": {
     "started": "Application started",
     "cloud-loaded": "Cloud loaded",
-    "load-cloud-failed": "Error loading cloud"
+    "load-cloud-failed": "Error loading cloud",
+    "alignment-applied": "Alignment applied",
+    "alignment-failed": "Error applying alignment",
+    "centralization-applied": "Centralization applied",
+    "centralization-failed": "Error applying centralization",
+    "noise-add-applied": "Noise add applied",
+    "noise-add-failed": "Error applying noise add",
+    "normal-estimation-applied": "Normal estimation applied",
+    "normal-estimation-failed": "Error applying normal estimation",
+    "voxel-grid-applied": "Voxel grid applied",
+    "voxel-grid-failed": "Error applying voxel grid",
+    "efficient-ransace-applied": "Efficient ransac applied",
+    "efficient-ransace-failed": "Error applying efficient ransac"
   },
   "notifications": {
     "loading": {
-      "load-cloud": "Loading cloud"
+      "load-cloud": "Loading cloud",
+      "alignment": "Applying alignment",
+      "centralization": "Applying centralization",
+      "noise-add": "Applying noise add",
+      "normal-estimation": "Applying normal estimation",
+      "voxel-grid": "Applying voxel grid",
+      "efficient-ransac": "Applying efficient ransac"
     },
     "success": {
-      "load-cloud": "Cloud successfully loaded!"
+      "load-cloud": "Cloud successfully loaded!",
+      "alignment": "Alignment successfully applied!",
+      "centralization": "Centralization successfully applied!",
+      "noise-add": "Noise add successfully applied!",
+      "normal-estimation": "Normal estimation successfully applied!",
+      "voxel-grid": "Voxel grid successfully applied!",
+      "efficient-ransac": "Efficient ransac successfully applied!"
     },
     "warning": {
       "cloud-not-loaded": "Please, upload a cloud to perform this action.",
       "mesh-not-loaded": "Please, run the primitivation to generate a mesh to perform this action."
     },
     "error": {
-      "load-cloud": "Error loading cloud."
+      "load-cloud": "Error loading cloud.",
+      "alignment": "Error applying alignment",
+      "centralization": "Error applying centralization",
+      "noise-add": "Error applying noise add",
+      "normal-estimation": "Error applying normal estimation",
+      "voxel-grid": "Error applying voxel grid",
+      "efficient-ransac": "Error applying efficient ransac"
     }
+  },
+  "common": {
+    "unlabeled": "Unlabeled",
+    "sphere": "Sphere",
+    "cylinder": "Cylinder",
+    "cone": "Cone",
+    "plane": "Plane"
   }
 }

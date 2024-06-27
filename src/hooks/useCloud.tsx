@@ -10,7 +10,8 @@ interface ICloudContext {
   spheresCount: number;
   cylindersCount: number;
   clearCloud: () => void;
-  updateCloudIds: (_cloudId: string, _meshId: string) => void;
+  updateCloudId: (_cloudId: string) => void;
+  updateSessionId: (_sessionId: string) => void;
   updatePrimitivesCounting: (
     _plansCount: number,
     _spheresCount: number,
@@ -45,9 +46,11 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
     setSpheresCount(0);
     setCylindersCount(0);
   };
-  const updateCloudIds = (_sessionId: string, _cloudId: string) => {
-    setSessionId(_sessionId);
+  const updateCloudId = (_cloudId: string) => {
     setCloudId(_cloudId);
+  };
+  const updateSessionId = (_sessionId: string) => {
+    setSessionId(_sessionId);
   };
   const updatePrimitivesCounting = (
     _plansCount: number,
@@ -72,7 +75,8 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
         cylindersCount,
         isLoaded: sessionId && cloudId ? true : false,
         clearCloud,
-        updateCloudIds,
+        updateCloudId,
+        updateSessionId,
         updatePrimitivesCounting,
       }}
     >

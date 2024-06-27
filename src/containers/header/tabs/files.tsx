@@ -9,7 +9,7 @@ import UploadButton from "../../../components/uploadButton";
 import useCloud from "../../../hooks/useCloud";
 
 /* API */
-import useUploadCloud from "../../../api/services/clouds/upload";
+import useUploadCloud from "../../../api/services/files/uploadCloud";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";

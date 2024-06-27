@@ -1,9 +1,9 @@
 /* REACT */
-import { FC, useState } from "react";
+import { FC } from "react";
 
 /* COMPONENTS */
 import HeaderTab from "../../../components/headerTab";
-import FormModal from "../../../components/formModal";
+// import FormModal from "../../../components/formModal";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";
@@ -14,21 +14,17 @@ import generatePasswordIcon from "../../../assets/icons/admin/generate-password.
 const AdminTab: FC = () => {
   const { t } = useTranslation();
 
-  const [passwordModalOpen, setPasswordModalOpen] = useState<boolean>(false);
+  // const [passwordModalOpen, setPasswordModalOpen] = useState<boolean>(false);
 
-  const openPasswordModal = () => setPasswordModalOpen(true);
-  const closePasswordModal = () => setPasswordModalOpen(false);
+  // const openPasswordModal = () => setPasswordModalOpen(true);
+  // const closePasswordModal = () => setPasswordModalOpen(false);
 
   return (
     <>
-      <FormModal
+      {/* <FormModal
         open={passwordModalOpen}
         onClose={closePasswordModal}
-        onCancel={closePasswordModal}
-        cancelText={t("modals.cancel")}
-        title={t("modals.generatePassword.title")}
-        okText={t("modals.generatePassword.submit")}
-      />
+      /> */}
       <HeaderTab
         items={[
           {
@@ -36,7 +32,7 @@ const AdminTab: FC = () => {
             icon: generatePasswordIcon,
             key: "generate-password-button",
             label: t("tabs.admin.generate-password"),
-            action: openPasswordModal,
+            action: () => {},
           },
         ]}
       />

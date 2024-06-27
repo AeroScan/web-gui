@@ -4,6 +4,9 @@ import { FC } from "react";
 /* COMPONENTS */
 import FormModal from "../../../components/formModal";
 
+/* API */
+import useApplyAlignment from "../../../api/services/preProcessing/alignment";
+
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
 import useAlignment from "../../../hooks/preProcessing/useAlignment";
@@ -16,29 +19,34 @@ const AlignmentModal: FC = () => {
   const { t } = useTranslation();
   const { sessionId, cloudId } = useCloud();
   const { modalOpen, closeModal } = useAlignment();
+  const { mutateAsync: applyAlignment } = useApplyAlignment();
 
   const blockCondition: boolean = !!!sessionId || !!!cloudId;
 
-  const submitHandler = () => {
+  const onSubmit = () => {
     if (blockCondition) {
       notification.warning({
         message: t("modals.alignment.blockDescription"),
       });
       return;
     }
+    applyAlignment({});
+    closeModal();
   };
 
   return (
     <FormModal
+      parameters={[]}
       open={modalOpen}
-      onOk={submitHandler}
+      onSubmit={onSubmit}
       onClose={closeModal}
       onCancel={closeModal}
-      okText={t("modals.submit")}
-      cancelText={t("modals.cancel")}
       blockCondition={blockCondition}
+      submitText={t("modals.submit")}
+      cancelText={t("modals.cancel")}
       title={t("modals.alignment.title")}
-      blockConditionDescription={t("modals.alignment.blockDescription")}
+      subtitle={t("modals.alignment.subtitle")}
+      blockDescription={t("modals.alignment.blockDescription")}
     />
   );
 };
