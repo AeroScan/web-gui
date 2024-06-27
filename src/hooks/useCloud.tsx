@@ -1,5 +1,6 @@
 /* REACT */
 import { FC, ReactNode, createContext, useState, useContext } from "react";
+import { CloudViewType } from "../utils/types/cloud";
 
 interface ICloudContext {
   cloudId: string;
@@ -9,7 +10,9 @@ interface ICloudContext {
   conesCount: number;
   spheresCount: number;
   cylindersCount: number;
+  viewType: CloudViewType;
   clearCloud: () => void;
+  toggleViewType: () => void;
   updateCloudId: (_cloudId: string) => void;
   updateSessionId: (_sessionId: string) => void;
   updatePrimitivesCounting: (
@@ -30,6 +33,9 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
   // File identifiers for retrieval on the static server
   const [cloudId, setCloudId] = useState<string>("");
   const [sessionId, setSessionId] = useState<string>("");
+
+  // Cloud view type
+  const [viewType, setViewType] = useState<CloudViewType>("types");
 
   // Counting primitive types
   const [plansCount, setPlansCount] = useState<number>(0);
@@ -63,11 +69,15 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
     setSpheresCount(_spheresCount);
     setCylindersCount(_cylindersCount);
   };
+  const toggleViewType = () => {
+    setViewType((prev) => (prev === "instances" ? "types" : "instances"));
+  };
 
   return (
     <CloudContext.Provider
       value={{
         cloudId,
+        viewType,
         sessionId,
         plansCount,
         conesCount,
@@ -76,6 +86,7 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
         isLoaded: sessionId && cloudId ? true : false,
         clearCloud,
         updateCloudId,
+        toggleViewType,
         updateSessionId,
         updatePrimitivesCounting,
       }}

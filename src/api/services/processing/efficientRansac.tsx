@@ -32,6 +32,7 @@ const useApplyEfficientRansac = () => {
       values: params,
     };
     const { data: cloud } = await apiClient.post<CloudDto>("/effRansac", body);
+    console.log(cloud);
     return cloud;
   };
 

@@ -18,6 +18,8 @@
       "label": "Files",
       "load-cloud": "Load Cloud",
       "view-cloud": "View Cloud",
+      "view-types-cloud": "View Types Cloud",
+      "view-instances-cloud": "View Instances Cloud",
       "view-mesh": "View Mesh",
       "save-cloud": "Save Cloud",
       "save-mesh": "Save Mesh",

@@ -17,7 +17,7 @@ const PotreeViewer = () => {
   const potreeRenderArea = useRef(null);
 
   const { i18n, t } = useTranslation();
-  const { cloudId, sessionId } = useCloud();
+  const { cloudId, sessionId, viewType } = useCloud();
   const { applied: isEfficientRansacApplied } = useEfficientRansac();
 
   const [viewer, setViewer] = useState<any>(null);
@@ -78,7 +78,7 @@ const PotreeViewer = () => {
           `${process.env.REACT_APP_SERVER_URL}:${
             process.env.REACT_APP_FILES_PORT
           }/clouds/${sessionId}/${cloudId}/output${
-            isEfficientRansacApplied ? "_types" : ""
+            isEfficientRansacApplied ? `_${viewType}` : ""
           }/metadata.json`
         )
         .then(
@@ -89,9 +89,9 @@ const PotreeViewer = () => {
             const { material } = e.pointcloud;
             material.size = 1;
             material.pointSizeType = potree.PointSizeType.ADAPTIVE;
-            material.activeAttributeName = isEfficientRansacApplied
-              ? "classification"
-              : "elevation";
+            if (isEfficientRansacApplied && viewType === "types") {
+              material.activeAttributeName = "classification";
+            }
             viewer.fitToScreen();
           },
           (error: unknown) => console.error(`ERROR: ${error}`)
@@ -101,6 +101,7 @@ const PotreeViewer = () => {
     viewer,
     potree,
     cloudId,
+    viewType,
     sessionId,
     viewerConfigured,
     isEfficientRansacApplied,
@@ -108,7 +109,7 @@ const PotreeViewer = () => {
 
   useEffect(() => {
     if (viewer) {
-      if (isEfficientRansacApplied) {
+      if (isEfficientRansacApplied && viewType === "types") {
         viewer.setClassifications([
           {
             visible: true,

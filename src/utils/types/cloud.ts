@@ -12,3 +12,5 @@ export interface IRangeOnly {
 export interface IRangeValue extends IRangeOnly {
   value: number;
 }
+
+export type CloudViewType = "types" | "instances";

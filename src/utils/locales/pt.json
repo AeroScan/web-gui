@@ -18,6 +18,8 @@
       "label": "Arquivos",
       "load-cloud": "Carregar Nuvem",
       "view-cloud": "Visualizar Nuvem",
+      "view-types-cloud": "Visualizar Nuvem de Tipos",
+      "view-instances-cloud": "Visualizar Nuvem de Instâncias",
       "view-mesh": "Visualizar Mesh",
       "save-cloud": "Salvar Nuvem",
       "save-mesh": "Salvar Mesh",
