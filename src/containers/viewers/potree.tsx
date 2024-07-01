@@ -17,7 +17,7 @@ const PotreeViewer = () => {
   const potreeRenderArea = useRef(null);
 
   const { i18n, t } = useTranslation();
-  const { cloudId, sessionId, viewType } = useCloud();
+  const { cloudId, sessionId, viewType, annotations } = useCloud();
   const { applied: isEfficientRansacApplied } = useEfficientRansac();
 
   const [viewer, setViewer] = useState<any>(null);
@@ -83,15 +83,36 @@ const PotreeViewer = () => {
         )
         .then(
           (e: any) => {
+            // Reset viewer
+            viewer.scene.annotations.removeAllChildren();
             viewer.scene.scenePointCloud.remove(viewer.scene.pointclouds[0]);
             viewer.scene.pointclouds.pop();
+
+            // Adds point cloud
             viewer.scene.addPointCloud(e.pointcloud);
+
+            // Adds material and annotations
             const { material } = e.pointcloud;
             material.size = 1;
             material.pointSizeType = potree.PointSizeType.ADAPTIVE;
-            if (isEfficientRansacApplied && viewType === "types") {
-              material.activeAttributeName = "classification";
+            if (isEfficientRansacApplied) {
+              if (viewType === "instances") {
+                annotations.forEach((annotation) => {
+                  viewer.scene.annotations.add(
+                    new potree.Annotation({
+                      title: annotation.title,
+                      position: annotation.position,
+                      description: annotation.description,
+                      cameraPosition: annotation.position,
+                      cameraTarget: annotation.position,
+                    })
+                  );
+                });
+              } else if (viewType === "types") {
+                material.activeAttributeName = "classification";
+              }
             }
+
             viewer.fitToScreen();
           },
           (error: unknown) => console.error(`ERROR: ${error}`)
@@ -103,6 +124,7 @@ const PotreeViewer = () => {
     cloudId,
     viewType,
     sessionId,
+    annotations,
     viewerConfigured,
     isEfficientRansacApplied,
   ]);

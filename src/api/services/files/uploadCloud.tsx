@@ -3,7 +3,7 @@ import { useMutation } from "react-query";
 import { apiClient } from "../../config/httpCommon";
 
 /* DTOS */
-import { CloudDto } from "../../types/cloud";
+import { UploadCloudResponseDto } from "../../types/cloud";
 
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
@@ -27,7 +27,7 @@ const useUploadCloud = () => {
 
   const uploadCloud = async (file: FormData) => {
     updateLoadingStatus(t("notifications.loading.load-cloud"));
-    const { data: cloud } = await apiClient.post<CloudDto>(
+    const { data: cloud } = await apiClient.post<UploadCloudResponseDto>(
       "/uploadCloud",
       file,
       {
@@ -36,10 +36,11 @@ const useUploadCloud = () => {
         },
       }
     );
+    console.log(cloud);
     return cloud;
   };
 
-  const handleSuccess = (data: CloudDto) => {
+  const handleSuccess = (data: UploadCloudResponseDto) => {
     updateCloudId(data.uuid);
     updateSessionId(data.session);
     updateStatus("cloud-loaded");

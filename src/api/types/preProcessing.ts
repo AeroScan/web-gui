@@ -1,3 +1,5 @@
+import { CloudDto, ErrorStatusDto } from "./cloud";
+
 export enum PreProcessingFunctionTypes {
   ALIGNMENT = "alignment",
   CENTRALIZATION = "centralization",
@@ -9,12 +11,15 @@ export enum PreProcessingFunctionTypes {
   VOXEL_GRID = "voxel_grid",
 }
 
-export type PreProcessingPostDto<T> = {
-  uuid: string;
-  session: string;
+export type PreProcessingPostDto<T> = CloudDto & {
   function_type: PreProcessingFunctionTypes;
   values: T;
 };
+
+export type PreProcessingResponseDto = Pick<CloudDto, "uuid"> &
+  ErrorStatusDto & {
+    params_suggestion: string;
+  };
 
 export type AlignmentParams = {};
 export type CentralizationParams = {};
