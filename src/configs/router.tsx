@@ -26,6 +26,10 @@ const router = createBrowserRouter([
         path: "pointCloud",
         element: <PotreeViewer />,
       },
+      {
+        path: "mesh",
+        element: <PotreeViewer />,
+      },
     ],
   },
 ]);

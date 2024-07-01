@@ -10,13 +10,15 @@ import useCloud from "../../hooks/useCloud";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";
+import useEfficientRansac from "../../hooks/processing/useEfficientRansac";
 
 const PotreeViewer = () => {
   const potree: any = (window as any).Potree;
   const potreeRenderArea = useRef(null);
 
-  const { i18n } = useTranslation();
-  const { cloudId, sessionId } = useCloud();
+  const { i18n, t } = useTranslation();
+  const { cloudId, sessionId, viewType } = useCloud();
+  const { applied: isEfficientRansacApplied } = useEfficientRansac();
 
   const [viewer, setViewer] = useState<any>(null);
   const [pageLoaded, setPageLoaded] = useState<boolean>(false);
@@ -73,7 +75,11 @@ const PotreeViewer = () => {
     if (cloudId && potree && viewerConfigured && viewer) {
       potree
         .loadPointCloud(
-          `${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_FILES_PORT}/clouds/${sessionId}/${cloudId}/output/metadata.json`
+          `${process.env.REACT_APP_SERVER_URL}:${
+            process.env.REACT_APP_FILES_PORT
+          }/clouds/${sessionId}/${cloudId}/output${
+            isEfficientRansacApplied ? `_${viewType}` : ""
+          }/metadata.json`
         )
         .then(
           (e: any) => {
@@ -83,12 +89,60 @@ const PotreeViewer = () => {
             const { material } = e.pointcloud;
             material.size = 1;
             material.pointSizeType = potree.PointSizeType.ADAPTIVE;
+            if (isEfficientRansacApplied && viewType === "types") {
+              material.activeAttributeName = "classification";
+            }
             viewer.fitToScreen();
           },
           (error: unknown) => console.error(`ERROR: ${error}`)
         );
     }
-  }, [sessionId, cloudId, potree, viewerConfigured, viewer]);
+  }, [
+    viewer,
+    potree,
+    cloudId,
+    viewType,
+    sessionId,
+    viewerConfigured,
+    isEfficientRansacApplied,
+  ]);
+
+  useEffect(() => {
+    if (viewer) {
+      if (isEfficientRansacApplied && viewType === "types") {
+        viewer.setClassifications([
+          {
+            visible: true,
+            name: t("common.unlabeled"),
+            color: [0, 0, 0, 1],
+          },
+          {
+            visible: true,
+            name: t("common.plane"),
+            color: [1, 0, 0, 1],
+          },
+          {
+            visible: true,
+            name: t("common.cylinder"),
+            color: [0, 0, 1, 1],
+          },
+          {
+            visible: true,
+            name: t("common.cone"),
+            color: [1, 1, 0, 1],
+          },
+          {
+            visible: true,
+            name: t("common.sphere"),
+            color: [0, 0.5, 0, 1],
+          },
+        ]);
+      } else {
+        viewer.setClassifications([]);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isEfficientRansacApplied, viewer]);
 
   return (
     <div id="potree-root" className="bg-black !h-[calc(100vh-232px)] w-full">

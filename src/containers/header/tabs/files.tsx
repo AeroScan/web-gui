@@ -7,12 +7,14 @@ import UploadButton from "../../../components/uploadButton";
 
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
+import useEfficientRansac from "../../../hooks/processing/useEfficientRansac";
 
 /* API */
-import useUploadCloud from "../../../api/services/clouds/upload";
+import useUploadCloud from "../../../api/services/files/uploadCloud";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router";
 
 /* ASSETS */
 import saveCadIcon from "../../../assets/icons/files/save-cad.svg";
@@ -25,14 +27,49 @@ import saveResultsIcon from "../../../assets/icons/files/save-results.svg";
 
 const FilesTab: FC = () => {
   const { t } = useTranslation();
-  const { isLoaded: isCloudLoaded } = useCloud();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { mutateAsync: uploadCloud } = useUploadCloud();
   const uploadButtonRef = useRef<HTMLInputElement>(null);
+  const { applied: isEfficientRansacApplied } = useEfficientRansac();
+  const { isLoaded: isCloudLoaded, viewType, toggleViewType } = useCloud();
 
   const handleLoadCloudClick = () => {
     if (uploadButtonRef.current) {
       uploadButtonRef.current.click();
     }
+  };
+
+  const handleViewCloudClick = () => {
+    navigate("pointCloud");
+  };
+
+  const handleViewTypesCloudClick = () => {
+    toggleViewType();
+  };
+
+  const handleViewInstancesCloudClick = () => {
+    toggleViewType();
+  };
+
+  const handleViewMeshClick = () => {
+    navigate("mesh");
+  };
+
+  const handleSaveCloudClick = () => {
+    console.log(t("tabs.files.save-cloud"));
+  };
+
+  const handleSaveMeshClick = () => {
+    console.log(t("tabs.files.save-mesh"));
+  };
+
+  const handleSaveCadClick = () => {
+    console.log(t("tabs.files.save-cad"));
+  };
+
+  const handleSaveResultsClick = () => {
+    console.log(t("tabs.files.save-results"));
   };
 
   const handleUploadCloud = async (file: File) => {
@@ -60,46 +97,74 @@ const FilesTab: FC = () => {
             action: handleLoadCloudClick,
           },
           {
-            active: isCloudLoaded,
+            active: isCloudLoaded && pathname.includes("mesh"),
             icon: viewCloudIcon,
             key: "view-cloud-button",
             label: t("tabs.files.view-cloud"),
-            action: () => console.log(t("tabs.files.view-cloud")),
+            action: handleViewCloudClick,
           },
           {
-            active: isCloudLoaded,
+            active:
+              isCloudLoaded &&
+              isEfficientRansacApplied &&
+              pathname.includes("pointCloud"),
             icon: viewMeshIcon,
             key: "view-mesh-button",
             label: t("tabs.files.view-mesh"),
-            action: () => console.log(t("tabs.files.view-mesh")),
+            action: handleViewMeshClick,
           },
           {
-            active: isCloudLoaded,
+            active:
+              isCloudLoaded &&
+              isEfficientRansacApplied &&
+              viewType === "instances" &&
+              pathname.includes("pointCloud"),
+            icon: viewCloudIcon,
+            key: "view-types-cloud-button",
+            label: t("tabs.files.view-types-cloud"),
+            action: handleViewTypesCloudClick,
+          },
+          {
+            active:
+              isCloudLoaded &&
+              isEfficientRansacApplied &&
+              viewType === "types" &&
+              pathname.includes("pointCloud"),
+            icon: viewCloudIcon,
+            key: "view-instances-cloud-button",
+            label: t("tabs.files.view-instances-cloud"),
+            action: handleViewInstancesCloudClick,
+          },
+          {
+            active: isCloudLoaded && pathname.includes("pointCloud"),
             icon: saveCloudIcon,
             key: "save-cloud-button",
             label: t("tabs.files.save-cloud"),
-            action: () => console.log(t("tabs.files.save-cloud")),
+            action: handleSaveCloudClick,
           },
           {
-            active: isCloudLoaded,
+            active:
+              isCloudLoaded &&
+              isEfficientRansacApplied &&
+              pathname.includes("mesh"),
             icon: saveMeshIcon,
             key: "save-mesh-button",
             label: t("tabs.files.save-mesh"),
-            action: () => console.log(t("tabs.files.save-mesh")),
+            action: handleSaveMeshClick,
           },
           {
-            active: isCloudLoaded,
+            active: isCloudLoaded && isEfficientRansacApplied,
             icon: saveCadIcon,
             key: "save-cad-button",
             label: t("tabs.files.save-cad"),
-            action: () => console.log(t("tabs.files.save-cad")),
+            action: handleSaveCadClick,
           },
           {
-            active: isCloudLoaded,
+            active: isCloudLoaded && isEfficientRansacApplied,
             icon: saveResultsIcon,
             key: "save-results-button",
             label: t("tabs.files.save-results"),
-            action: () => console.log(t("tabs.files.save-results")),
+            action: handleSaveResultsClick,
           },
         ]}
       />

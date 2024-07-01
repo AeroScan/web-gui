@@ -18,6 +18,8 @@
       "label": "Files",
       "load-cloud": "Load Cloud",
       "view-cloud": "View Cloud",
+      "view-types-cloud": "View Types Cloud",
+      "view-instances-cloud": "View Instances Cloud",
       "view-mesh": "View Mesh",
       "save-cloud": "Save Cloud",
       "save-mesh": "Save Mesh",
@@ -61,39 +63,142 @@
     "cancel": "Cancel",
     "efficientRansac": {
       "title": "Efficient Ransac",
-      "blockDescription": "You need to run the normal estimation filter before running the Efficient Ransac"
+      "subtitle": "Efficient RANSAC is an optimized version of the Random Sample Consensus algorithm, used for robust model fitting in the presence of outliers. Customize the algorithm parameters manually for accurate results.",
+      "blockDescription": "You need to run the normal estimation filter before running the Efficient Ransac",
+      "parameters": {
+        "probability": {
+          "label": "Probability",
+          "tooltip": "Controls the desired probability of finding a valid model. Lower values increase computation time but improve the likelihood of accurate results."
+        },
+        "minPoints": {
+          "label": "Min points",
+          "tooltip": "Specifies the minimum number of data points required to define a model. It influences the model's robustness and should be set according to data characteristics."
+        },
+        "clusterEpsilon": {
+          "label": "Cluster epsilon",
+          "tooltip": "Defines the maximum distance between points in the same cluster. Adjust it to group points closely related to the detected model."
+        },
+        "epsilon": {
+          "label": "Epsilon",
+          "tooltip": "Determines the tolerance for point-to-model distance. Smaller values provide a tighter fit, while larger values allow for more flexibility."
+        },
+        "normalThreshold": {
+          "label": "Normal threshold",
+          "tooltip": "Sets the threshold for accepting points based on their normal alignment with the model. Higher values require closer alignment, potentially filtering out noisy data."
+        }
+      }
     },
     "cropBox": {
       "title": "Crop Box",
-      "blockDescription": "You need to load a cloud before running the Crop Box"
+      "subtitle": "The Crop Box filter can be applied to crop just the region of interest in the input point cloud. The parameters must be hand-writed, but the values to be used can be choosed with help of the tool called Point measurement in the point cloud visualization.",
+      "blockDescription": "You need to load a cloud before running the Crop Box",
+      "parameters": {
+        "startingX": {
+          "label": "Starting X",
+          "required": "Starting X is required",
+          "tooltip": "Minimum X coordinate. Range and unity of measurament are directly dependent of the point cloud. To tune this parameter, go to the point cloud visualization, select the minimum point to be considered in the region of interest and write it here."
+        },
+        "startingY": {
+          "label": "Starting Y",
+          "required": "Starting Y is required",
+          "tooltip": "Minimum Y coordinate. Range and unity of measurament are directly dependent of the point cloud. To tune this parameter, go to the point cloud visualization, select the minimum point to be considered in the region of interest and write it here."
+        },
+        "startingZ": {
+          "label": "Starting Z",
+          "required": "Starting Z is required",
+          "tooltip": "Minimum Z coordinate. Range and unity of measurament are directly dependent of the point cloud. To tune this parameter, go to the point cloud visualization, select the minimum point to be considered in the region of interest and write it here."
+        },
+        "endingX": {
+          "label": "Ending X",
+          "required": "Ending X is required",
+          "tooltip": "Minimum X coordinate. Range and unity of measurament are directly dependent of the point cloud. To tune this parameter, go to the point cloud visualization, select the minimum point to be considered in the region of interest and write it here."
+        },
+        "endingY": {
+          "label": "Ending Y",
+          "required": "Ending Y is required",
+          "tooltip": "Minimum Y coordinate. Range and unity of measurament are directly dependent of the point cloud. To tune this parameter, go to the point cloud visualization, select the minimum point to be considered in the region of interest and write it here."
+        },
+        "endingZ": {
+          "label": "Ending Z",
+          "required": "Ending Z is required",
+          "tooltip": "Minimum Z coordinate. Range and unity of measurament are directly dependent of the point cloud. To tune this parameter, go to the point cloud visualization, select the minimum point to be considered in the region of interest and write it here."
+        }
+      }
     },
     "voxelGrid": {
       "title": "Voxel Grid",
-      "blockDescription": "You need to load a cloud before running the Voxel Grid"
+      "subtitle": "The Voxel Grid algorithm discretizes the point cloud into a 3D cubic structure for improved indexing and analysis. Manually specify the grid parameters to control voxel size and precision.",
+      "blockDescription": "You need to load a cloud before running the Voxel Grid",
+      "parameters": {
+        "leafSize": {
+          "label": "Leaf size",
+          "required": "Leaf size is required.",
+          "tooltip": "The Leaf Size parameter determines the size of the voxels (3D cubes) used for discretizing the point cloud. A smaller leaf size results in smaller voxels, providing a more detailed representation but requiring more memory and computation. Conversely, a larger leaf size yields larger voxels, reducing memory and computation requirements but potentially losing fine-grained detail. Adjust this parameter to strike a balance between detail and efficiency for your analysis."
+        }
+      }
     },
     "statisticalRemoval": {
       "title": "Statistical Removal",
-      "blockDescription": "You need to load a cloud before running the Statistical Removal"
+      "subtitle": "Statistical Removal is employed to filter out outlier points within the point cloud based on statistical criteria. Fine-tune the removal parameters manually to effectively remove unwanted data points.",
+      "blockDescription": "You need to load a cloud before running the Statistical Removal",
+      "parameters": {
+        "mean": {
+          "label": "Mean",
+          "required": "Mean is required.",
+          "tooltip": "Defines the expected mean value for the data distribution. Data points with values significantly deviating from this mean are considered outliers and may be removed during statistical filtering."
+        },
+        "standardDeviation": {
+          "label": "Std deviation",
+          "required": "Std deviation is required",
+          "tooltip": "Specifies the acceptable range around the mean. Data points beyond this range are considered outliers and are subject to removal. A smaller standard deviation tightens the filter, while a larger one allows for a broader range of accepted values."
+        }
+      }
     },
     "normalEstimation": {
       "title": "Normal Estimation",
-      "blockDescription": "You need to load a cloud before running the Normal Estimation"
+      "subtitle": "Normal Estimation calculates surface normals for each point in the cloud, essential for surface analysis and feature detection. Adjust the estimation parameters manually for precise normal vectors.",
+      "blockDescription": "You need to load a cloud before running the Normal Estimation",
+      "parameters": {
+        "radius": {
+          "label": "Radius",
+          "required": "Radius is required.",
+          "tooltip": "Defines the search radius for neighboring points when estimating normals. A larger radius considers points farther from the target point, potentially resulting in smoother but less localized normals. A smaller radius limits the influence to nearby points, yielding more detailed, localized normal vectors. Adjust this parameter to suit the level of detail needed for your analysis."
+        }
+      }
     },
     "reescale": {
       "title": "Reescale",
-      "blockDescription": "You need to load a cloud before running the Reescale"
+      "subtitle": "Rescaling allows you to adjust the scale of the point cloud to specific units or dimensions. Manually configure the rescaling parameters for accurate scaling results.",
+      "blockDescription": "You need to load a cloud before running the Reescale",
+      "parameters": {
+        "factor": {
+          "label": "Factor",
+          "required": "Factor is required.",
+          "tooltip": "Determines the scaling factor applied to the entire point cloud. Use values greater than 1 for upscaling, values between 0 and 1 for downscaling, and set it to 1 to maintain the original scale. Carefully adjust this factor to control the overall size of the point cloud as needed for your analysis."
+        }
+      }
     },
     "centralization": {
       "title": "Centralization",
+      "subtitle": "Centralization is the process of repositioning the point cloud within a centered coordinate system. After applying it, you can utilize the Point Measurement tool within the point cloud visualization to check this functionality.",
       "blockDescription": "You need to load a cloud before running the Centralization"
     },
     "alignment": {
       "title": "Alignment",
+      "subtitle": "The Alignment algorithm facilitates the precise alignment of the point cloud, ensuring it is aligned to the center of the coordinate system and orientation. After applying it, you can utilize the Point Measurement tool within the point cloud visualization to check this functionality.",
       "blockDescription": "You need to load a cloud before running the Alignment"
     },
     "noiseAdd": {
       "title": "Noise Add",
-      "blockDescription": "You need to load a cloud before running the Noise Add"
+      "subtitle": "The Noise Add algorithm introduces random perturbations to the point cloud data, simulating noisy conditions or supporting testing purposes. Configure noise parameters manually to achieve the desired level of noise.",
+      "blockDescription": "You need to load a cloud before running the Noise Add",
+      "parameters": {
+        "limit": {
+          "label": "Limit",
+          "required": "Limit is required.",
+          "tooltip": "Sets the upper bound for adding noise to the point cloud. It controls the maximum magnitude of perturbations introduced, ensuring noise remains within manageable limits for accurate data simulation."
+        }
+      }
     },
     "generatePassword": {
       "submit": "Generate Password",
@@ -106,21 +211,73 @@
   "status": {
     "started": "Application started",
     "cloud-loaded": "Cloud loaded",
-    "load-cloud-failed": "Error loading cloud"
+    "load-cloud-failed": "Error loading cloud",
+    "alignment-applied": "Alignment applied",
+    "alignment-failed": "Error applying alignment",
+    "centralization-applied": "Centralization applied",
+    "centralization-failed": "Error applying centralization",
+    "crop-box-applied": "Crop box applied",
+    "crop-box-failed": "Error applying crop box",
+    "noise-add-applied": "Noise add applied",
+    "noise-add-failed": "Error applying noise add",
+    "normal-estimation-applied": "Normal estimation applied",
+    "normal-estimation-failed": "Error applying normal estimation",
+    "reescale-applied": "Reescale applied",
+    "reescale-failed": "Error applying reescale",
+    "statistical-removal-applied": "Statistical removal applied",
+    "statistical-removal-failed": "Error applying statistical removal",
+    "voxel-grid-applied": "Voxel grid applied",
+    "voxel-grid-failed": "Error applying voxel grid",
+    "efficient-ransace-applied": "Efficient ransac applied",
+    "efficient-ransace-failed": "Error applying efficient ransac"
   },
   "notifications": {
     "loading": {
-      "load-cloud": "Loading cloud"
+      "load-cloud": "Loading cloud",
+      "alignment": "Applying alignment",
+      "centralization": "Applying centralization",
+      "crop-box": "Applying crop box",
+      "noise-add": "Applying noise add",
+      "normal-estimation": "Applying normal estimation",
+      "reescale": "Applying reescale",
+      "statistical-removal": "Applying statistical removal",
+      "voxel-grid": "Applying voxel grid",
+      "efficient-ransac": "Applying efficient ransac"
     },
     "success": {
-      "load-cloud": "Cloud successfully loaded!"
+      "load-cloud": "Cloud successfully loaded!",
+      "alignment": "Alignment successfully applied!",
+      "centralization": "Centralization successfully applied!",
+      "crop-box": "Crop box successfully applied!",
+      "noise-add": "Noise add successfully applied!",
+      "normal-estimation": "Normal estimation successfully applied!",
+      "reescale": "Reescale successfully applied!",
+      "statistical-removal": "Statistical removal successfully applied!",
+      "voxel-grid": "Voxel grid successfully applied!",
+      "efficient-ransac": "Efficient ransac successfully applied!"
     },
     "warning": {
       "cloud-not-loaded": "Please, upload a cloud to perform this action.",
       "mesh-not-loaded": "Please, run the primitivation to generate a mesh to perform this action."
     },
     "error": {
-      "load-cloud": "Error loading cloud."
+      "load-cloud": "Error loading cloud.",
+      "alignment": "Error applying alignment",
+      "centralization": "Error applying centralization",
+      "crop-box": "Error applying crop box",
+      "noise-add": "Error applying noise add",
+      "normal-estimation": "Error applying normal estimation",
+      "reescale": "Error applying reescale",
+      "statistical-removal": "Error applying statistical removal",
+      "voxel-grid": "Error applying voxel grid",
+      "efficient-ransac": "Error applying efficient ransac"
     }
+  },
+  "common": {
+    "unlabeled": "Unlabeled",
+    "sphere": "Sphere",
+    "cylinder": "Cylinder",
+    "cone": "Cone",
+    "plane": "Plane"
   }
 }

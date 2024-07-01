@@ -18,6 +18,8 @@
       "label": "Arquivos",
       "load-cloud": "Carregar Nuvem",
       "view-cloud": "Visualizar Nuvem",
+      "view-types-cloud": "Visualizar Nuvem de Tipos",
+      "view-instances-cloud": "Visualizar Nuvem de Instâncias",
       "view-mesh": "Visualizar Mesh",
       "save-cloud": "Salvar Nuvem",
       "save-mesh": "Salvar Mesh",
@@ -61,39 +63,142 @@
     "cancel": "Cancelar",
     "efficientRansac": {
       "title": "Efficient Ransac",
-      "blockDescription": "Você precisa executar o Normal Estimation antes de rodar o Efficient Ransac"
+      "subtitle": "O Efficient RANSAC é uma versão otimizada do algoritmo de Consenso de Amostras Aleatórias, utilizado para ajuste robusto de modelos na presença de outliers. Personalize os parâmetros do algoritmo manualmente para obter resultados precisos.",
+      "blockDescription": "Você precisa executar o Normal Estimation antes de rodar o Efficient Ransac",
+      "parameters": {
+        "probability": {
+          "label": "Probability",
+          "tooltip": "Controla a probabilidade desejada de encontrar um modelo válido. Valores mais baixos aumentam o tempo de computação, mas melhoram a probabilidade de resultados precisos."
+        },
+        "minPoints": {
+          "label": "Min points",
+          "tooltip": "Especifica o número mínimo de pontos de dados necessários para definir um modelo. Isso influencia a robustez do modelo e deve ser ajustado de acordo com as características dos dados."
+        },
+        "clusterEpsilon": {
+          "label": "Cluster epsilon",
+          "tooltip": "Define a distância máxima entre pontos no mesmo cluster. Ajuste-o para agrupar pontos que estão intimamente relacionados ao modelo detectado."
+        },
+        "epsilon": {
+          "label": "Epsilon",
+          "tooltip": "Determina a tolerância para a distância entre pontos e o modelo. Valores menores proporcionam um ajuste mais preciso, enquanto valores maiores permitem maior flexibilidade."
+        },
+        "normalThreshold": {
+          "label": "Normal threshold",
+          "tooltip": "Define o limiar para aceitar pontos com base no alinhamento de suas normais com o modelo. Valores mais altos requerem um alinhamento mais próximo, potencialmente filtrando dados ruidosos."
+        }
+      }
     },
     "cropBox": {
       "title": "Crop Box",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Crop Box"
+      "subtitle": "O filtro Crop Box pode ser aplicado para recortar apenas a região de interesse na nuvem de pontos de entrada. Os parâmetros devem ser escritos à mão, mas os valores a serem usados podem ser escolhidos com a ajuda da ferramenta chamada Medição de Pontos na visualização da nuvem de pontos.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de executar o Crop Box",
+      "parameters": {
+        "startingX": {
+          "label": "Starting X",
+          "required": "O campo Starting X precisa ser preenchido",
+          "tooltip": "Coordenada X mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "startingY": {
+          "label": "Starting Y",
+          "required": "O campo Starting Y precisa ser preenchido",
+          "tooltip": "Coordenada Y mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "startingZ": {
+          "label": "Starting Z",
+          "required": "O campo Starting Z precisa ser preenchido",
+          "tooltip": "Coordenada Z mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "endingX": {
+          "label": "Ending X",
+          "required": "O campo Ending X precisa ser preenchido",
+          "tooltip": "Coordenada X mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "endingY": {
+          "label": "Ending Y",
+          "required": "O campo Ending Y precisa ser preenchido",
+          "tooltip": "Coordenada Y mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "endingZ": {
+          "label": "Ending Z",
+          "required": "O campo Ending Z precisa ser preenchido",
+          "tooltip": "Coordenada Z mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        }
+      }
     },
     "voxelGrid": {
       "title": "Voxel Grid",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Voxel Grid"
+      "subtitle": "O algoritmo Voxel Grid discretiza a nuvem de pontos em uma estrutura cúbica 3D para melhorar a indexação e análise. Especifique manualmente os parâmetros da grade para controlar o tamanho dos voxels e a precisão.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Voxel Grid",
+      "parameters": {
+        "leafSize": {
+          "label": "Leaf size",
+          "required": "O campo leaf size deve ser preenchido.",
+          "tooltip": "Determina o tamanho dos voxels (cubos 3D) usados para discretizar a nuvem de pontos. Um tamanho de folha menor resulta em voxels menores, proporcionando uma representação mais detalhada, mas exigindo mais memória e computação. Por outro lado, um tamanho de folha maior produz voxels maiores, reduzindo os requisitos de memória e computação, mas potencialmente perdendo detalhes minuciosos. Ajuste este parâmetro para equilibrar a precisão e a eficiência da sua análise."
+        }
+      }
     },
     "statisticalRemoval": {
       "title": "Statistical Removal",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Statistical Removal"
+      "subtitle": "A Remoção Estatística é usada para filtrar pontos fora do padrão na nuvem de pontos com base em critérios estatísticos. Ajuste manualmente os parâmetros de remoção para eliminar eficazmente os pontos de dados indesejados.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Statistical Removal",
+      "parameters": {
+        "mean": {
+          "label": "Mean",
+          "required": "O campo mean deve ser preenchido.",
+          "tooltip": "Define o valor médio esperado para a distribuição dos dados. Pontos de dados com valores que desviam significativamente dessa média são considerados outliers e podem ser removidos durante a filtragem estatística."
+        },
+        "standardDeviation": {
+          "label": "Std deviation",
+          "required": "O campo std deviation deve ser preenchido.",
+          "tooltip": "Especifica o intervalo aceitável em torno da média. Pontos de dados fora desse intervalo são considerados outliers e estão sujeitos à remoção. Um desvio padrão menor torna o filtro mais rigoroso, enquanto um desvio padrão maior permite um intervalo mais amplo de valores aceitos."
+        }
+      }
     },
     "normalEstimation": {
       "title": "Normal Estimation",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Normal Estimation"
+      "subtitle": "Calcula as normais de superfície para cada ponto na nuvem, essencial para a análise de superfícies e detecção de características. Ajuste os parâmetros de estimativa manualmente para obter vetores normais precisos.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Normal Estimation",
+      "parameters": {
+        "radius": {
+          "label": "Radius",
+          "required": "O campo radius deve ser preenchido.",
+          "tooltip": "Define o raio de busca para pontos vizinhos ao estimar normais. Um raio maior considera pontos mais distantes do ponto alvo, potencialmente resultando em normais mais suaves, mas menos localizadas. Um raio menor limita a influência aos pontos próximos, produzindo vetores normais mais detalhados e localizados. Ajuste este parâmetro para adequar ao nível de detalhe necessário para a sua análise."
+        }
+      }
     },
     "reescale": {
       "title": "Reescale",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Reescale"
+      "subtitle": "Permite ajustar a escala da nuvem de pontos para unidades ou dimensões específicas. Configure manualmente os parâmetros de redimensionamento para obter resultados de escala precisos.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Reescale",
+      "parameters": {
+        "factor": {
+          "label": "Factor",
+          "required": "O campo factor deve ser preenchido.",
+          "tooltip": "Determina o fator de escala aplicado a toda a nuvem de pontos. Use valores maiores que 1 para aumentar a escala, valores entre 0 e 1 para diminuir a escala e defina-o como 1 para manter a escala original. Ajuste cuidadosamente este fator para controlar o tamanho geral da nuvem de pontos conforme necessário para sua análise."
+        }
+      }
     },
     "centralization": {
       "title": "Centralization",
+      "subtitle": "A centralização é o processo de reposicionar a nuvem de pontos dentro de um sistema de coordenadas centralizado. Após aplicá-la, você pode utilizar a ferramenta de Medição de Pontos na visualização da nuvem de pontos para verificar essa funcionalidade.",
       "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Centralization"
     },
     "alignment": {
       "title": "Alignment",
+      "subtitle": "O algoritmo de Alinhamento facilita o alinhamento preciso da nuvem de pontos, garantindo que ela esteja centralizada no sistema de coordenadas e orientação. Após aplicá-lo, você pode utilizar a ferramenta de Medição de Pontos na visualização da nuvem de pontos para verificar essa funcionalidade.",
       "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Alignment"
     },
     "noiseAdd": {
       "title": "Noise Add",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Noise Add"
+      "subtitle": "O algoritmo Adicionar Ruído introduz perturbações aleatórias nos dados da nuvem de pontos, simulando condições ruidosas ou apoiando propósitos de teste. Configure os parâmetros de ruído manualmente para alcançar o nível desejado de ruído.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Noise Add",
+      "parameters": {
+        "limit": {
+          "label": "Limit",
+          "required": "O campo limit deve ser preenchido.",
+          "tooltip": "Define o limite superior para a adição de ruído à nuvem de pontos. Ele controla a magnitude máxima das perturbações introduzidas, garantindo que o ruído permaneça dentro de limites gerenciáveis para uma simulação precisa dos dados."
+        }
+      }
     },
     "generatePassword": {
       "submit": "Gerar Senha",
@@ -106,21 +211,73 @@
   "status": {
     "started": "Aplicação inicializada",
     "cloud-loaded": "Nuvem carregada",
-    "load-cloud-failed": "Falha ao carregar nuvem"
+    "load-cloud-failed": "Falha ao carregar nuvem",
+    "alignment-applied": "Alignment aplicado",
+    "alignment-failed": "Falha ao aplicar alignment",
+    "centralization-applied": "Centralization aplicado",
+    "centralization-failed": "Falha ao aplicar centralization",
+    "crop-box-applied": "Crop box aplicado",
+    "crop-box-failed": "Falha ao aplicar crop box",
+    "noise-add-applied": "Noise add aplicado",
+    "noise-add-failed": "Falha ao aplicar noise add",
+    "normal-estimation-applied": "Normal estimation aplicado",
+    "normal-estimation-failed": "Falha ao aplicar normal estimation",
+    "reescale-applied": "Reescale aplicado",
+    "reescale-failed": "Falha ao aplicar reescale",
+    "statistical-removal-applied": "Statistical removal aplicado",
+    "statistical-removal-failed": "Falha ao aplicar statistical removal",
+    "voxel-grid-applied": "Voxel grid aplicado",
+    "voxel-grid-failed": "Falha ao aplicar voxel grid",
+    "efficient-ransac-applied": "Efficient ransac aplicado",
+    "efficient-ransac-failed": "Falha ao aplicar efficient ransac"
   },
   "notifications": {
     "loading": {
-      "load-cloud": "Carregando nuvem"
+      "load-cloud": "Carregando nuvem",
+      "alignment": "Aplicando alignment",
+      "centralization": "Aplicando centralization",
+      "crop-box": "Aplicando crop box",
+      "noise-add": "Aplicando noise add",
+      "normal-estimation": "Aplicando normal estimation",
+      "reescale": "Aplicando reescale",
+      "statistical-removal": "Aplicando statistical removal",
+      "voxel-grid": "Aplicando voxel grid",
+      "efficient-ransac": "Aplicando efficient ransac"
     },
     "success": {
-      "load-cloud": "Nuvem carregada com sucesso!"
+      "load-cloud": "Nuvem carregada com sucesso!",
+      "alignment": "Alignment aplicado com sucesso!",
+      "centralization": "Centralization aplicado com sucesso!",
+      "crop-box": "Crop box aplicado com sucesso!",
+      "noise-add": "Noise add aplicado com sucesso!",
+      "normal-estimation": "Normal estimation aplicado com sucesso!",
+      "reescale": "Reescale aplicado com sucesso!",
+      "statistical-removal": "Statistical removal aplicado com sucesso!",
+      "voxel-grid": "Voxel grid aplicado com sucesso!",
+      "efficient-ransac": "Efficient ransac aplicado com sucesso!"
     },
     "warning": {
       "cloud-not-loaded": "Por favor, carregue uma nuvem antes de executar esta ação.",
       "mesh-not-loaded": "Por favor, execute a primitivação para gerar uma mesh antes de executar esta ação."
     },
     "error": {
-      "load-cloud": "Erro ao carregar nuvem."
+      "load-cloud": "Erro ao carregar nuvem.",
+      "alignment": "Erro ao aplicar alignment",
+      "centralization": "Erro ao aplicar centralization",
+      "crop-box": "Erro ao aplicar crop box",
+      "noise-add": "Erro ao aplicar noise add",
+      "normal-estimation": "Erro ao aplicar normal estimation",
+      "reescale": "Erro ao aplicar reescale",
+      "statistical-removal": "Erro ao aplicar statistical removal",
+      "voxel-grid": "Erro ao aplicar voxel grid",
+      "efficient-ransac": "Erro ao aplicar efficient ransac"
     }
+  },
+  "common": {
+    "unlabeled": "Indefinido",
+    "sphere": "Esfera",
+    "cylinder": "Cilindro",
+    "cone": "Cone",
+    "plane": "Plano"
   }
 }

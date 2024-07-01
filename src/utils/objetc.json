@@ -1,0 +1,22 @@
+{
+  "cloud_size_x": 10.499419212341309,
+  "cloud_size_y": 6.4418768882751465,
+  "cloud_size_z": 18.15546989440918,
+  "min_points_max": 1922217,
+  "min_points_min": 4,
+  "normal": 0.087236537457705807,
+  "normal_max": 21.939842039699677,
+  "normal_min": 0,
+  "normal_threshold_max": 1.5700000000000001,
+  "normal_threshold_min": 0,
+  "probability_max": 1,
+  "probability_min": 0,
+  "ransac_cepsilon": 0.075549057576565978,
+  "ransac_cepsilon_max": 21.939842039699677,
+  "ransac_cepsilon_min": 0,
+  "ransac_epsilon": 0.083103963334222569,
+  "ransac_epsilon_max": 21.939842039699677,
+  "ransac_epsilon_min": 0,
+  "total_points": 140578581537391,
+  "voxel": 0.021809134364426452
+}
