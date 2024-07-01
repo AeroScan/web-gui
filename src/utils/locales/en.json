@@ -211,6 +211,8 @@
   "status": {
     "started": "Application started",
     "cloud-loaded": "Cloud loaded",
+    "cloud-downloaded": "Cloud downloaded",
+    "results-saved": "Ransac results saved",
     "load-cloud-failed": "Error loading cloud",
     "alignment-applied": "Alignment applied",
     "alignment-failed": "Error applying alignment",
@@ -234,6 +236,8 @@
   "notifications": {
     "loading": {
       "load-cloud": "Loading cloud",
+      "download-cloud": "Downloading cloud",
+      "save-results": "Saving ransac results",
       "alignment": "Applying alignment",
       "centralization": "Applying centralization",
       "crop-box": "Applying crop box",
@@ -246,6 +250,8 @@
     },
     "success": {
       "load-cloud": "Cloud successfully loaded!",
+      "download-cloud": "Cloud successfully downloaded!",
+      "save-results": "Ransac results successfully saved!",
       "alignment": "Alignment successfully applied!",
       "centralization": "Centralization successfully applied!",
       "crop-box": "Crop box successfully applied!",
@@ -262,6 +268,8 @@
     },
     "error": {
       "load-cloud": "Error loading cloud.",
+      "download-cloud": "Error downloading cloud.",
+      "save-results": "Error saving ransac results.",
       "alignment": "Error applying alignment",
       "centralization": "Error applying centralization",
       "crop-box": "Error applying crop box",
