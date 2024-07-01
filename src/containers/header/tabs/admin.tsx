@@ -1,9 +1,11 @@
 /* REACT */
-import { FC } from "react";
+import { FC, useState } from "react";
 
 /* COMPONENTS */
 import HeaderTab from "../../../components/headerTab";
-// import FormModal from "../../../components/formModal";
+
+/* CONTAINERS */
+import GeneratePasswordModal from "../../modals/admin/GeneratePasswordModal";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";
@@ -14,17 +16,17 @@ import generatePasswordIcon from "../../../assets/icons/admin/generate-password.
 const AdminTab: FC = () => {
   const { t } = useTranslation();
 
-  // const [passwordModalOpen, setPasswordModalOpen] = useState<boolean>(false);
+  const [passwordModalOpen, setPasswordModalOpen] = useState<boolean>(false);
 
-  // const openPasswordModal = () => setPasswordModalOpen(true);
-  // const closePasswordModal = () => setPasswordModalOpen(false);
+  const openPasswordModal = () => setPasswordModalOpen(true);
+  const closePasswordModal = () => setPasswordModalOpen(false);
 
   return (
     <>
-      {/* <FormModal
+      <GeneratePasswordModal
         open={passwordModalOpen}
         onClose={closePasswordModal}
-      /> */}
+      />
       <HeaderTab
         items={[
           {
@@ -32,7 +34,7 @@ const AdminTab: FC = () => {
             icon: generatePasswordIcon,
             key: "generate-password-button",
             label: t("tabs.admin.generate-password"),
-            action: () => {},
+            action: () => openPasswordModal(),
           },
         ]}
       />

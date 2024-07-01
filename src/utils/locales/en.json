@@ -61,6 +61,8 @@
   "modals": {
     "submit": "Run",
     "cancel": "Cancel",
+    "email-required": "Email is required.",
+    "email-valid": "Enter a valid email",
     "efficientRansac": {
       "title": "Efficient Ransac",
       "subtitle": "Efficient RANSAC is an optimized version of the Random Sample Consensus algorithm, used for robust model fitting in the presence of outliers. Customize the algorithm parameters manually for accurate results.",
@@ -260,7 +262,8 @@
       "reescale": "Reescale successfully applied!",
       "statistical-removal": "Statistical removal successfully applied!",
       "voxel-grid": "Voxel grid successfully applied!",
-      "efficient-ransac": "Efficient ransac successfully applied!"
+      "efficient-ransac": "Efficient ransac successfully applied!",
+      "password-generated": "Password successfully generated and copied to the clipboard!"
     },
     "warning": {
       "cloud-not-loaded": "Please, upload a cloud to perform this action.",

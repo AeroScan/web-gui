@@ -13,6 +13,7 @@ import { TLoginFormValues } from "../utils/types/login";
 
 /* ASSETS */
 import logo from "../assets/images/logo.png";
+import { SOFTWARE_VERSION } from "../utils/constants/version";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation();
@@ -51,6 +52,7 @@ const LoginPage: FC = () => {
             </h2>
           </div>
           <LoginForm onFinish={onFinish} />
+          <span className="font-semibold text-brown mt-4 text-sm">{`v${SOFTWARE_VERSION}`}</span>
         </div>
       </div>
     </div>

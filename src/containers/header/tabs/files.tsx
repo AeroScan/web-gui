@@ -107,17 +107,19 @@ const FilesTab: FC = () => {
             action: handleLoadCloudClick,
           },
           {
-            active: isCloudLoaded && pathname.includes("mesh"),
+            active: false,
+            // active: isCloudLoaded && pathname.includes("mesh"),
             icon: viewCloudIcon,
             key: "view-cloud-button",
             label: t("tabs.files.view-cloud"),
             action: handleViewCloudClick,
           },
           {
-            active:
-              isCloudLoaded &&
-              isEfficientRansacApplied &&
-              pathname.includes("pointCloud"),
+            active: false,
+            // active:
+            //   isCloudLoaded &&
+            //   isEfficientRansacApplied &&
+            //   pathname.includes("pointCloud"),
             icon: viewMeshIcon,
             key: "view-mesh-button",
             label: t("tabs.files.view-mesh"),
