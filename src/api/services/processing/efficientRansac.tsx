@@ -33,6 +33,8 @@ const useApplyEfficientRansac = () => {
       "/effRansac",
       body
     );
+    const { data: mesh } = await apiClient.post(`/generateMesh/${cloud}`);
+    console.log(mesh);
     return cloud;
   };
 

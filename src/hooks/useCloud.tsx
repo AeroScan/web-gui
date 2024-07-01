@@ -9,7 +9,9 @@ import { CloudViewType } from "../utils/types/cloud";
 
 interface ICloudContext {
   cloudId: string;
+  meshName: string;
   sessionId: string;
+  viewMesh: boolean;
   isLoaded: boolean;
   plansCount: number;
   conesCount: number;
@@ -19,7 +21,9 @@ interface ICloudContext {
   annotations: AnnotationDto[];
   clearCloud: () => void;
   toggleViewType: () => void;
+  toggleViewMesh: () => void;
   updateCloudId: (_cloudId: string) => void;
+  updateMeshName: (_meshName: string) => void;
   updateSessionId: (_sessionId: string) => void;
   updateAnnotations: (_annotations: AnnotationDto[]) => void;
 }
@@ -34,8 +38,10 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
   // File identifiers for retrieval on the static server
   const [cloudId, setCloudId] = useState<string>("");
   const [sessionId, setSessionId] = useState<string>("");
+  const [meshName, setMeshName] = useState<string>("");
 
   // Cloud view type
+  const [viewMesh, setViewMesh] = useState<boolean>(false);
   const [viewType, setViewType] = useState<CloudViewType>("types");
 
   // Annotations
@@ -59,6 +65,9 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
   const updateCloudId = (_cloudId: string) => {
     setCloudId(_cloudId);
   };
+  const updateMeshName = (_meshName: string) => {
+    setMeshName(_meshName);
+  };
   const updateSessionId = (_sessionId: string) => {
     setSessionId(_sessionId);
   };
@@ -76,12 +85,17 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
   const toggleViewType = () => {
     setViewType((prev) => (prev === "instances" ? "types" : "instances"));
   };
+  const toggleViewMesh = () => {
+    setViewMesh((prev) => !prev);
+  };
 
   return (
     <CloudContext.Provider
       value={{
         cloudId,
+        meshName,
         viewType,
+        viewMesh,
         sessionId,
         plansCount,
         conesCount,
@@ -91,7 +105,9 @@ export const CloudProvider: FC<ICloudProviderProps> = ({ children }) => {
         isLoaded: sessionId && cloudId ? true : false,
         clearCloud,
         updateCloudId,
+        updateMeshName,
         toggleViewType,
+        toggleViewMesh,
         updateSessionId,
         updateAnnotations,
       }}
