@@ -166,6 +166,12 @@ const PotreeViewer = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEfficientRansacApplied, viewer]);
 
+  useEffect(() => {
+    if (viewer) {
+      viewer.setLanguage(i18n.language);
+    }
+  }, [viewer, i18n.language]);
+
   return (
     <div id="potree-root" className="bg-black !h-[calc(100vh-232px)] w-full">
       <div
