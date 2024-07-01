@@ -15,10 +15,11 @@ function FormParameter<T extends FieldValues>({
   control,
   required,
   placeholder,
+  allowNegative,
 }: ParameterProps<T>): JSX.Element {
   return (
     <Row gutter={16} align="middle" className="w-4/5 my-2">
-      <Col span={6}>
+      <Col span={6} className="flex justify-end">
         <label className="text-right w-full" htmlFor={name}>
           {required && <span className="text-red-500">*</span>}{" "}
           <span>{`${label}:`}</span>
@@ -38,8 +39,8 @@ function FormParameter<T extends FieldValues>({
           render={({ field }) => (
             <InputNumber
               {...field}
-              min={0}
               placeholder={placeholder}
+              min={allowNegative ? undefined : 0}
               className={`w-full ${error ? "border border-red-500" : ""}`}
             />
           )}

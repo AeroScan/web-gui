@@ -1,5 +1,5 @@
 /* REACT */
-import { useRef, useState } from "react";
+import React, { SyntheticEvent, useRef, useState } from "react";
 
 /* COMPONENTS */
 import FormParameter from "./item";
@@ -14,6 +14,7 @@ import type { DraggableBounds, DraggableEventHandler } from "react-draggable";
 
 function FormModal<T extends FieldValues>({
   title,
+  width,
   subtitle,
   submitText,
   cancelText,
@@ -26,6 +27,7 @@ function FormModal<T extends FieldValues>({
   ...modalProps
 }: FormModalProps<T>): JSX.Element {
   const {
+    reset,
     control,
     handleSubmit,
     formState: { errors },
@@ -56,15 +58,25 @@ function FormModal<T extends FieldValues>({
     });
   };
 
+  const handleClose = (e: SyntheticEvent<Element, Event>) => {
+    reset();
+    if (onClose) onClose(e);
+  };
+
+  const handleCancel = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    reset();
+    if (onCancel) onCancel(e);
+  };
+
   return (
     <Modal
       {...modalProps}
-      width={750}
+      width={width}
       footer={null}
       destroyOnClose
       closable={false}
-      onClose={onClose}
       maskClosable={true}
+      onClose={handleClose}
       title={
         <div
           onMouseOut={() => setDisabled(true)}
@@ -114,7 +126,7 @@ function FormModal<T extends FieldValues>({
           </>
         )}
         <div className="w-full flex justify-center gap-4 mt-4">
-          <Button onClick={onCancel}>{cancelText}</Button>
+          <Button onClick={handleCancel}>{cancelText}</Button>
           {!blockCondition && (
             <Button htmlType="submit" type="primary">
               {submitText}

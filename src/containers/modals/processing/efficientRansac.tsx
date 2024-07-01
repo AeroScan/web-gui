@@ -84,6 +84,7 @@ const EfficientRansacModal: FC = () => {
           ),
         },
       ]}
+      width={700}
       open={modalOpen}
       onSubmit={onSubmit}
       onClose={closeModal}

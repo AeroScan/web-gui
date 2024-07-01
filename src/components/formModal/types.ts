@@ -5,7 +5,13 @@ import type { Control, FieldValues, Path } from "react-hook-form";
 // Props type
 export type FormModalProps<T extends FieldValues> = Pick<
   ModalProps,
-  "open" | "title" | "onClose" | "children" | "onCancel" | "cancelText"
+  | "open"
+  | "title"
+  | "width"
+  | "onClose"
+  | "children"
+  | "onCancel"
+  | "cancelText"
 > & {
   subtitle?: string;
   submitText: string;
@@ -22,6 +28,7 @@ export type ParameterItem<T> = {
   required?: string;
   tooltip?: string;
   placeholder: string;
+  allowNegative?: boolean;
 };
 
 // Parameters type

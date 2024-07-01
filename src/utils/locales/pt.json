@@ -90,7 +90,40 @@
     },
     "cropBox": {
       "title": "Crop Box",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Crop Box"
+      "subtitle": "O filtro Crop Box pode ser aplicado para recortar apenas a região de interesse na nuvem de pontos de entrada. Os parâmetros devem ser escritos à mão, mas os valores a serem usados podem ser escolhidos com a ajuda da ferramenta chamada Medição de Pontos na visualização da nuvem de pontos.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de executar o Crop Box",
+      "parameters": {
+        "startingX": {
+          "label": "Starting X",
+          "required": "O campo Starting X precisa ser preenchido",
+          "tooltip": "Coordenada X mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "startingY": {
+          "label": "Starting Y",
+          "required": "O campo Starting Y precisa ser preenchido",
+          "tooltip": "Coordenada Y mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "startingZ": {
+          "label": "Starting Z",
+          "required": "O campo Starting Z precisa ser preenchido",
+          "tooltip": "Coordenada Z mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "endingX": {
+          "label": "Ending X",
+          "required": "O campo Ending X precisa ser preenchido",
+          "tooltip": "Coordenada X mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "endingY": {
+          "label": "Ending Y",
+          "required": "O campo Ending Y precisa ser preenchido",
+          "tooltip": "Coordenada Y mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        },
+        "endingZ": {
+          "label": "Ending Z",
+          "required": "O campo Ending Z precisa ser preenchido",
+          "tooltip": "Coordenada Z mínima. O intervalo e a unidade de medida dependem diretamente da nuvem de pontos. Para ajustar este parâmetro, vá para a visualização da nuvem de pontos, selecione o ponto mínimo a ser considerado na região de interesse e escreva-o aqui."
+        }
+      }
     },
     "voxelGrid": {
       "title": "Voxel Grid",
@@ -106,7 +139,20 @@
     },
     "statisticalRemoval": {
       "title": "Statistical Removal",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Statistical Removal"
+      "subtitle": "A Remoção Estatística é usada para filtrar pontos fora do padrão na nuvem de pontos com base em critérios estatísticos. Ajuste manualmente os parâmetros de remoção para eliminar eficazmente os pontos de dados indesejados.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Statistical Removal",
+      "parameters": {
+        "mean": {
+          "label": "Mean",
+          "required": "O campo mean deve ser preenchido.",
+          "tooltip": "Define o valor médio esperado para a distribuição dos dados. Pontos de dados com valores que desviam significativamente dessa média são considerados outliers e podem ser removidos durante a filtragem estatística."
+        },
+        "standardDeviation": {
+          "label": "Std deviation",
+          "required": "O campo std deviation deve ser preenchido.",
+          "tooltip": "Especifica o intervalo aceitável em torno da média. Pontos de dados fora desse intervalo são considerados outliers e estão sujeitos à remoção. Um desvio padrão menor torna o filtro mais rigoroso, enquanto um desvio padrão maior permite um intervalo mais amplo de valores aceitos."
+        }
+      }
     },
     "normalEstimation": {
       "title": "Normal Estimation",
@@ -122,7 +168,15 @@
     },
     "reescale": {
       "title": "Reescale",
-      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Reescale"
+      "subtitle": "Permite ajustar a escala da nuvem de pontos para unidades ou dimensões específicas. Configure manualmente os parâmetros de redimensionamento para obter resultados de escala precisos.",
+      "blockDescription": "Você precisa carregar uma nuvem antes de rodar o Reescale",
+      "parameters": {
+        "factor": {
+          "label": "Factor",
+          "required": "O campo factor deve ser preenchido.",
+          "tooltip": "Determina o fator de escala aplicado a toda a nuvem de pontos. Use valores maiores que 1 para aumentar a escala, valores entre 0 e 1 para diminuir a escala e defina-o como 1 para manter a escala original. Ajuste cuidadosamente este fator para controlar o tamanho geral da nuvem de pontos conforme necessário para sua análise."
+        }
+      }
     },
     "centralization": {
       "title": "Centralization",
@@ -162,10 +216,16 @@
     "alignment-failed": "Falha ao aplicar alignment",
     "centralization-applied": "Centralization aplicado",
     "centralization-failed": "Falha ao aplicar centralization",
+    "crop-box-applied": "Crop box aplicado",
+    "crop-box-failed": "Falha ao aplicar crop box",
     "noise-add-applied": "Noise add aplicado",
     "noise-add-failed": "Falha ao aplicar noise add",
     "normal-estimation-applied": "Normal estimation aplicado",
     "normal-estimation-failed": "Falha ao aplicar normal estimation",
+    "reescale-applied": "Reescale aplicado",
+    "reescale-failed": "Falha ao aplicar reescale",
+    "statistical-removal-applied": "Statistical removal aplicado",
+    "statistical-removal-failed": "Falha ao aplicar statistical removal",
     "voxel-grid-applied": "Voxel grid aplicado",
     "voxel-grid-failed": "Falha ao aplicar voxel grid",
     "efficient-ransac-applied": "Efficient ransac aplicado",
@@ -176,8 +236,11 @@
       "load-cloud": "Carregando nuvem",
       "alignment": "Aplicando alignment",
       "centralization": "Aplicando centralization",
+      "crop-box": "Aplicando crop box",
       "noise-add": "Aplicando noise add",
       "normal-estimation": "Aplicando normal estimation",
+      "reescale": "Aplicando reescale",
+      "statistical-removal": "Aplicando statistical removal",
       "voxel-grid": "Aplicando voxel grid",
       "efficient-ransac": "Aplicando efficient ransac"
     },
@@ -185,8 +248,11 @@
       "load-cloud": "Nuvem carregada com sucesso!",
       "alignment": "Alignment aplicado com sucesso!",
       "centralization": "Centralization aplicado com sucesso!",
+      "crop-box": "Crop box aplicado com sucesso!",
       "noise-add": "Noise add aplicado com sucesso!",
       "normal-estimation": "Normal estimation aplicado com sucesso!",
+      "reescale": "Reescale aplicado com sucesso!",
+      "statistical-removal": "Statistical removal aplicado com sucesso!",
       "voxel-grid": "Voxel grid aplicado com sucesso!",
       "efficient-ransac": "Efficient ransac aplicado com sucesso!"
     },
@@ -198,8 +264,11 @@
       "load-cloud": "Erro ao carregar nuvem.",
       "alignment": "Erro ao aplicar alignment",
       "centralization": "Erro ao aplicar centralization",
+      "crop-box": "Erro ao aplicar crop box",
       "noise-add": "Erro ao aplicar noise add",
       "normal-estimation": "Erro ao aplicar normal estimation",
+      "reescale": "Erro ao aplicar reescale",
+      "statistical-removal": "Erro ao aplicar statistical removal",
       "voxel-grid": "Erro ao aplicar voxel grid",
       "efficient-ransac": "Erro ao aplicar efficient ransac"
     }
