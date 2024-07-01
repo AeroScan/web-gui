@@ -58,8 +58,6 @@ export const EfficientRansacProvider: FC<IEfficientRansacProviderProps> = ({
       ...suggestedParams,
       clusterEpsilon: extractParam(strObj, "ransac_cepsilon") || 0,
       epsilon: extractParam(strObj, "ransac_epsilon") || 0,
-      minPoints: extractParam(strObj, "voxel") || 0,
-      normalThreshold: extractParam(strObj, "voxel") || 0,
     });
   };
 

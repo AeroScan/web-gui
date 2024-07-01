@@ -6,6 +6,13 @@ export type CloudDto = {
   uuid: string;
 };
 
+export type DownloadCloudResponseDto = {
+  data: string;
+  error: boolean;
+  message: string;
+  extension: string;
+};
+
 export type ParamsSuggestionDto = {
   cloud_size_x: number;
   cloud_size_y: number;
