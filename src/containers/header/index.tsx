@@ -46,8 +46,7 @@ const Header: FC = () => {
     },
     {
       key: "admin",
-      // active: localStorage.getItem("authEmail") === "admin@admin.com",
-      active: true,
+      active: localStorage.getItem("authEmail") === "admin@admin.com",
       label: t("tabs.admin.label"),
       children: <AdminTab />,
     },
