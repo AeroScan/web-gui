@@ -287,5 +287,10 @@
     "cylinder": "Cylinder",
     "cone": "Cone",
     "plane": "Plane"
+  },
+  "about": {
+    "line1": "This software was developed by the FURG (Federal University of Rio Grande) development team for the AeroScan project.",
+    "line2": "This software was developed exclusively for use in the AeroScan project (agreement between ITA and Petrobras), with all rights belonging solely to the institutions involved in the contract. This license applies because the project in question hired the development team to build a specific system with predefined scope and functionalities.",
+    "credits": "Credits"
   }
 }
