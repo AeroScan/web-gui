@@ -24,15 +24,25 @@ import loadCloudIcon from "../../../assets/icons/files/load-cloud.svg";
 import viewCloudIcon from "../../../assets/icons/files/view-cloud.svg";
 import saveCloudIcon from "../../../assets/icons/files/save-cloud.svg";
 import saveResultsIcon from "../../../assets/icons/files/save-results.svg";
+import useDownloadCloud from "../../../api/services/files/saveCloud";
+import useSaveRansacResults from "../../../api/services/files/saveResults";
 
 const FilesTab: FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { downloadCloud } = useDownloadCloud();
+  const { saveRansacResults } = useSaveRansacResults();
   const { mutateAsync: uploadCloud } = useUploadCloud();
-  const uploadButtonRef = useRef<HTMLInputElement>(null);
   const { applied: isEfficientRansacApplied } = useEfficientRansac();
-  const { isLoaded: isCloudLoaded, viewType, toggleViewType } = useCloud();
+  const {
+    viewType,
+    sessionId,
+    toggleViewType,
+    isLoaded: isCloudLoaded,
+  } = useCloud();
+
+  const uploadButtonRef = useRef<HTMLInputElement>(null);
 
   const handleLoadCloudClick = () => {
     if (uploadButtonRef.current) {
@@ -57,7 +67,7 @@ const FilesTab: FC = () => {
   };
 
   const handleSaveCloudClick = () => {
-    console.log(t("tabs.files.save-cloud"));
+    downloadCloud(sessionId);
   };
 
   const handleSaveMeshClick = () => {
@@ -69,7 +79,7 @@ const FilesTab: FC = () => {
   };
 
   const handleSaveResultsClick = () => {
-    console.log(t("tabs.files.save-results"));
+    saveRansacResults(sessionId);
   };
 
   const handleUploadCloud = async (file: File) => {
@@ -143,17 +153,19 @@ const FilesTab: FC = () => {
             action: handleSaveCloudClick,
           },
           {
-            active:
-              isCloudLoaded &&
-              isEfficientRansacApplied &&
-              pathname.includes("mesh"),
+            active: false,
+            // active:
+            //   isCloudLoaded &&
+            //   isEfficientRansacApplied &&
+            //   pathname.includes("mesh"),
             icon: saveMeshIcon,
             key: "save-mesh-button",
             label: t("tabs.files.save-mesh"),
             action: handleSaveMeshClick,
           },
           {
-            active: isCloudLoaded && isEfficientRansacApplied,
+            active: false,
+            // active: isCloudLoaded && isEfficientRansacApplied,
             icon: saveCadIcon,
             key: "save-cad-button",
             label: t("tabs.files.save-cad"),

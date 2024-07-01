@@ -211,6 +211,8 @@
   "status": {
     "started": "Aplicação inicializada",
     "cloud-loaded": "Nuvem carregada",
+    "cloud-downloaded": "Nuvem salva",
+    "results-saved": "Resultados do ransac salvos",
     "load-cloud-failed": "Falha ao carregar nuvem",
     "alignment-applied": "Alignment aplicado",
     "alignment-failed": "Falha ao aplicar alignment",
@@ -234,6 +236,8 @@
   "notifications": {
     "loading": {
       "load-cloud": "Carregando nuvem",
+      "download-cloud": "Salvando nuvem",
+      "save-results": "Salvando resultados do ransac",
       "alignment": "Aplicando alignment",
       "centralization": "Aplicando centralization",
       "crop-box": "Aplicando crop box",
@@ -246,6 +250,8 @@
     },
     "success": {
       "load-cloud": "Nuvem carregada com sucesso!",
+      "download-cloud": "Nuvem salva com sucesso!",
+      "save-results": "Resultados do ransac salvos com sucesso!",
       "alignment": "Alignment aplicado com sucesso!",
       "centralization": "Centralization aplicado com sucesso!",
       "crop-box": "Crop box aplicado com sucesso!",
@@ -262,6 +268,8 @@
     },
     "error": {
       "load-cloud": "Erro ao carregar nuvem.",
+      "download-cloud": "Erro ao salvar nuvem.",
+      "save-results": "Erro ao salvar resultados do ransac.",
       "alignment": "Erro ao aplicar alignment",
       "centralization": "Erro ao aplicar centralization",
       "crop-box": "Erro ao aplicar crop box",

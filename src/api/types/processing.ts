@@ -11,3 +11,9 @@ export type EfficientRansacParams = {
   cluster_epsilon: number;
   normal_threshold: number;
 };
+
+export type RansacResultsDto = {
+  data: string;
+  error: boolean;
+  message: string;
+};
