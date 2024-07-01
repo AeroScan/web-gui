@@ -2,9 +2,6 @@
 import { useMutation } from "react-query";
 import { apiClient } from "../../config/httpCommon";
 
-/* DTOS */
-import { CloudDto } from "../../types/cloud";
-
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
 import useStatus from "../../../hooks/useStatus";
@@ -16,13 +13,14 @@ import { useTranslation } from "react-i18next";
 import {
   ProcessingPostDto,
   EfficientRansacParams,
+  ProcessingResponseDto,
 } from "../../types/processing";
 
 const useApplyEfficientRansac = () => {
   const { t } = useTranslation();
   const { setApplied } = useEfficientRansac();
-  const { updateCloudId, cloudId, sessionId } = useCloud();
   const { updateLoadingStatus, updateStatus } = useStatus();
+  const { updateCloudId, updateAnnotations, cloudId, sessionId } = useCloud();
 
   const applyEfficientRansac = async (params: EfficientRansacParams) => {
     updateLoadingStatus(t("notifications.loading.efficient-ransac"));
@@ -31,15 +29,18 @@ const useApplyEfficientRansac = () => {
       session: sessionId,
       values: params,
     };
-    const { data: cloud } = await apiClient.post<CloudDto>("/effRansac", body);
-    console.log(cloud);
+    const { data: cloud } = await apiClient.post<ProcessingResponseDto>(
+      "/effRansac",
+      body
+    );
     return cloud;
   };
 
-  const handleSuccess = (data: CloudDto) => {
+  const handleSuccess = (data: ProcessingResponseDto) => {
     setApplied();
     updateStatus("efficient-ransac-applied");
     updateCloudId(data.uuid);
+    updateAnnotations(data.annotations || []);
     updateLoadingStatus(false);
     notification.success({
       message: t("notifications.success.efficient-ransac"),

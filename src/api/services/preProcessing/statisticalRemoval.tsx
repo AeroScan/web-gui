@@ -2,9 +2,6 @@
 import { useMutation } from "react-query";
 import { apiClient } from "../../config/httpCommon";
 
-/* DTOS */
-import { CloudDto } from "../../types/cloud";
-
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
 import useStatus from "../../../hooks/useStatus";
@@ -16,8 +13,9 @@ import useNormalEstimation from "../../../hooks/preProcessing/useNormalEstimatio
 import { notification } from "antd";
 import { useTranslation } from "react-i18next";
 import {
-  StatisticalRemovalParams,
   PreProcessingPostDto,
+  StatisticalRemovalParams,
+  PreProcessingResponseDto,
   PreProcessingFunctionTypes,
 } from "../../types/preProcessing";
 
@@ -41,14 +39,14 @@ const useApplyStatisticalRemoval = () => {
       function_type: PreProcessingFunctionTypes.STATISTICAL_REMOVAL,
       values: params,
     };
-    const { data: cloud } = await apiClient.post<CloudDto>(
+    const { data: cloud } = await apiClient.post<PreProcessingResponseDto>(
       "/preProcessing",
       body
     );
     return cloud;
   };
 
-  const handleSuccess = (data: CloudDto) => {
+  const handleSuccess = (data: PreProcessingResponseDto) => {
     clearEfficientRansacApplied();
     updateStatus("statistical-removal-applied");
     updateCloudId(data.uuid);

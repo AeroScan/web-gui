@@ -2,9 +2,6 @@
 import { useMutation } from "react-query";
 import { apiClient } from "../../config/httpCommon";
 
-/* DTOS */
-import { CloudDto } from "../../types/cloud";
-
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
 import useStatus from "../../../hooks/useStatus";
@@ -18,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import {
   NoiseAddParams,
   PreProcessingPostDto,
+  PreProcessingResponseDto,
   PreProcessingFunctionTypes,
 } from "../../types/preProcessing";
 
@@ -41,14 +39,14 @@ const useApplyNoiseAdd = () => {
       function_type: PreProcessingFunctionTypes.NOISE_ADD,
       values: params,
     };
-    const { data: cloud } = await apiClient.post<CloudDto>(
+    const { data: cloud } = await apiClient.post<PreProcessingResponseDto>(
       "/preProcessing",
       body
     );
     return cloud;
   };
 
-  const handleSuccess = (data: CloudDto) => {
+  const handleSuccess = (data: PreProcessingResponseDto) => {
     clearEfficientRansacApplied();
     updateStatus("noise-add-applied");
     updateCloudId(data.uuid);

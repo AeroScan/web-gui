@@ -1,3 +1,9 @@
+export enum E3DSpace {
+  X = 0,
+  Y = 1,
+  Z = 2,
+}
+
 export interface I3DSpace {
   x: number;
   y: number;

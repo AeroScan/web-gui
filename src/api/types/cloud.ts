@@ -1,15 +1,20 @@
 export type CloudDto = {
-  error: boolean;
-  message: string;
-  params_suggestion: string;
   session: string;
   uuid: string;
 };
 
-export type DownloadCloudResponseDto = {
-  data: string;
+export type ErrorStatusDto = {
   error: boolean;
   message: string;
+};
+
+export type UploadCloudResponseDto = CloudDto &
+  ErrorStatusDto & {
+    params_suggestion: string;
+  };
+
+export type DownloadCloudResponseDto = ErrorStatusDto & {
+  data: string;
   extension: string;
 };
 

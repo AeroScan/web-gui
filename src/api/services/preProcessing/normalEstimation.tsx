@@ -2,9 +2,6 @@
 import { useMutation } from "react-query";
 import { apiClient } from "../../config/httpCommon";
 
-/* DTOS */
-import { CloudDto } from "../../types/cloud";
-
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
 import useStatus from "../../../hooks/useStatus";
@@ -16,8 +13,9 @@ import useNormalEstimation from "../../../hooks/preProcessing/useNormalEstimatio
 import { notification } from "antd";
 import { useTranslation } from "react-i18next";
 import {
-  NormalEstimationParams,
   PreProcessingPostDto,
+  NormalEstimationParams,
+  PreProcessingResponseDto,
   PreProcessingFunctionTypes,
 } from "../../types/preProcessing";
 
@@ -41,14 +39,14 @@ const useApplyNormalEstimation = () => {
       function_type: PreProcessingFunctionTypes.NORMAL_ESTIMATION,
       values: params,
     };
-    const { data: cloud } = await apiClient.post<CloudDto>(
+    const { data: cloud } = await apiClient.post<PreProcessingResponseDto>(
       "/preProcessing",
       body
     );
     return cloud;
   };
 
-  const handleSuccess = (data: CloudDto) => {
+  const handleSuccess = (data: PreProcessingResponseDto) => {
     clearEfficientRansacApplied();
     updateStatus("normal-estimation-applied");
     updateCloudId(data.uuid);

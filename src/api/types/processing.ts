@@ -1,8 +1,14 @@
-export type ProcessingPostDto<T> = {
-  uuid: string;
-  session: string;
+import { AnnotationDto } from "./annotations";
+import { CloudDto, ErrorStatusDto } from "./cloud";
+
+export type ProcessingPostDto<T> = CloudDto & {
   values: T;
 };
+
+export type ProcessingResponseDto = Pick<CloudDto, "uuid"> &
+  ErrorStatusDto & {
+    annotations: AnnotationDto[];
+  };
 
 export type EfficientRansacParams = {
   probability: number;
