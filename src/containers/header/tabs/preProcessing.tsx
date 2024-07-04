@@ -23,6 +23,7 @@ import useReescale from "../../../hooks/preProcessing/useReescale";
 import useCentralization from "../../../hooks/preProcessing/useCentralization";
 import useAlignment from "../../../hooks/preProcessing/useAlignment";
 import useNoiseAdd from "../../../hooks/preProcessing/useNoiseAdd";
+import useInterfaceTour from "../../../hooks/useInterfaceTour";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";
@@ -48,8 +49,10 @@ const PreProcessingTab: FC = () => {
   const { openModal: openAlignmentModal } = useAlignment();
   const { openModal: openNoiseAddModal } = useNoiseAdd();
 
+  const { preProcessingTabRef } = useInterfaceTour();
+
   return (
-    <>
+    <div ref={preProcessingTabRef}>
       <CropBoxModal />
       <VoxelGridModal />
       <StatisticalRemovalModal />
@@ -118,7 +121,7 @@ const PreProcessingTab: FC = () => {
           },
         ]}
       />
-    </>
+    </div>
   );
 };
 

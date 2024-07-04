@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 
 /* HOOKS */
 import useEfficientRansac from "../../../hooks/processing/useEfficientRansac";
+import useInterfaceTour from "../../../hooks/useInterfaceTour";
 
 /* ASSETS */
 import aeroScanIcon from "../../../assets/images/logo.png";
@@ -21,8 +22,10 @@ const ProcessingTab: FC = () => {
   const { t } = useTranslation();
   const { openModal: openRansacModal } = useEfficientRansac();
 
+  const { processingTabRef } = useInterfaceTour();
+
   return (
-    <>
+    <div ref={processingTabRef}>
       <EfficientRansacModal />
       <HeaderTab
         items={[
@@ -42,7 +45,7 @@ const ProcessingTab: FC = () => {
           },
         ]}
       />
-    </>
+    </div>
   );
 };
 

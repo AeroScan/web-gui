@@ -77732,7 +77732,7 @@ ENDSEC
       // $(".accordion > div").hide()
 
       // to open the, for example, tool menu, call:
-      // $("#menu_tools").next().show()
+      $("#menu_tools").next().show()
     }
 
     initAppearance() {

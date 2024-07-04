@@ -122,5 +122,48 @@
     "error": {
       "load-cloud": "Error loading cloud."
     }
-  }
+  },
+  "steps": {
+    "first-step": {
+      "title": "First Step",
+      "description": "Let's start the tour by te main page!"
+    },
+    "second-step": {
+      "title": "Files Tab",
+      "description": "So right here you have the tabs where you can navigate through it. Starting with the files tab, here you will find the functionalities of: "
+    },
+    "third-step": {
+      "title": "Load Cloud",
+      "description": "Each tab has some buttons whose functionality is described in the guide. If you already know the functions that each tab present, you can go straight to step 7 by clicking the button below."
+    },
+    "fourth-step": {
+      "title": "Pre-processing Tab",
+      "description": "This tab presents all cloud pre-processing functions as:"
+    },
+    "fifth-step": {
+      "title": "Processing Tab",
+      "description": "The processing tab one shows the Efficient Ransac function."
+    },
+    "sixth-step": {
+      "title": "Helps Tab",
+      "description": "This tab brings the functions of:"
+    },
+    "seventh-step": {
+      "title": "Account Tab",
+      "description": "The last one presents the logout functionality."
+    },
+    "eighth-step": {
+      "title": "Potree Viewer",
+      "description": "Right here the viewer will be displayed when the cloud is loaded."
+    },
+    "ninth-step": {
+      "title": "Potree Sidebar",
+      "description": "The sidebar has some tools and inside each one of the following menus you are going to find these tools. If you hover the option, it will show you a tooltip with a description of each feature."
+    },
+    "tenth-step": {
+      "title": "Application status",
+      "description": "And then, here is the application status wich changes according to the files tab functionalities."
+    }
+  },
+  "button-step": "step 7"
 }

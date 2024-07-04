@@ -122,5 +122,48 @@
     "error": {
       "load-cloud": "Erro ao carregar nuvem."
     }
-  }
+  },
+  "steps": {
+    "first-step": {
+      "title": "Primeiro passo",
+      "description": "Vamos começar o tour pela página principal!"
+    },
+    "second-step": {
+      "title": "Aba de Arquivos",
+      "description": "Aqui você tem as abas onde pode navegar por elas. Começando pela aba de arquivos, aqui você encontrará as funcionalidades de:"
+    },
+    "third-step": {
+      "title": "Carregar Nuvem",
+      "description": "Cada aba possui alguns botões cujo as funcionalidades estão descritas no manual. Se você já sabetodas as funcionalidades que cada aba apresenta, você pode pula direto para o passo 7 ao clicar no botão abaixo."
+    },
+    "fourth-step": {
+      "title": "Aba de Pré-processamento",
+      "description": "Eta aba apresenta todas as funções de pré-processamento de nuvem como:"
+    },
+    "fifth-step": {
+      "title": "Aba de Processamento",
+      "description": "A aba de processamento mostra a função Efficient RANSAC."
+    },
+    "sixth-step": {
+      "title": "Aba ajuda",
+      "description": "Esta aba traz as funções de:"
+    },
+    "seventh-step": {
+      "title": "Aba Conta",
+      "description": "A última aba apresenta a funcionalidade de sair"
+    },
+    "eighth-step": {
+      "title": "Visualizador Potree",
+      "description": "Aqui será exibido o visualizador quando a nuvem for carregada."
+    },
+    "ninth-step": {
+      "title": "Barra Lateral Potree",
+      "description": "A barra lateral possui algumas ferramentas e dentro de cada umdos menus vocês vai encontrar essas ferramentas. Se você passar o mouse sobre a opção, ela mostrará um tooltip com a descrição de cada funcionalidade."
+    },
+    "tenth-step": {
+      "title": "Status da Aplicação",
+      "description": "E então, aqui está o status da aplicação, que muda de acordo com as funcionalidades da aba de arquivos."
+    }
+  },
+  "button-step": "Passo 7"
 }

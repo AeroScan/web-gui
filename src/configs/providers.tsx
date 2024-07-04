@@ -13,6 +13,8 @@ import { CentralizationProvider } from "../hooks/preProcessing/useCentralization
 import { AlignmentProvider } from "../hooks/preProcessing/useAlignment";
 import { NoiseAddProvider } from "../hooks/preProcessing/useNoiseAdd";
 import { EfficientRansacProvider } from "../hooks/processing/useEfficientRansac";
+import { InterfaceTourProvider } from "../hooks/useInterfaceTour";
+import { ApplicationStateProvider } from "../hooks/useApplicationState";
 
 // Props interface
 interface GlobalProviderProps {
@@ -20,27 +22,31 @@ interface GlobalProviderProps {
 }
 
 const GlobalProviders: FC<GlobalProviderProps> = ({ children }) => (
-  <CloudProvider>
-    <CropBoxProvider>
-      <VoxelGridProvider>
-        <StatisticalRemovalProvider>
-          <NormalEstimationProvider>
-            <ReescaleProvider>
-              <CentralizationProvider>
-                <AlignmentProvider>
-                  <NoiseAddProvider>
-                    <EfficientRansacProvider>
-                      <StatusProvider>{children}</StatusProvider>
-                    </EfficientRansacProvider>
-                  </NoiseAddProvider>
-                </AlignmentProvider>
-              </CentralizationProvider>
-            </ReescaleProvider>
-          </NormalEstimationProvider>
-        </StatisticalRemovalProvider>
-      </VoxelGridProvider>
-    </CropBoxProvider>
-  </CloudProvider>
+  <ApplicationStateProvider>
+    <InterfaceTourProvider>
+      <CloudProvider>
+        <CropBoxProvider>
+          <VoxelGridProvider>
+            <StatisticalRemovalProvider>
+              <NormalEstimationProvider>
+                <ReescaleProvider>
+                  <CentralizationProvider>
+                    <AlignmentProvider>
+                      <NoiseAddProvider>
+                        <EfficientRansacProvider>
+                          <StatusProvider>{children}</StatusProvider>
+                        </EfficientRansacProvider>
+                      </NoiseAddProvider>
+                    </AlignmentProvider>
+                  </CentralizationProvider>
+                </ReescaleProvider>
+              </NormalEstimationProvider>
+            </StatisticalRemovalProvider>
+          </VoxelGridProvider>
+        </CropBoxProvider>
+      </CloudProvider>
+    </InterfaceTourProvider>
+  </ApplicationStateProvider>
 );
 
 export default GlobalProviders;

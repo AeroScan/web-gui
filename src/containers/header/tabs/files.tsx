@@ -7,6 +7,7 @@ import UploadButton from "../../../components/uploadButton";
 
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
+import useInterfaceTour from "../../../hooks/useInterfaceTour";
 
 /* API */
 import useUploadCloud from "../../../api/services/clouds/upload";
@@ -28,6 +29,9 @@ const FilesTab: FC = () => {
   const { isLoaded: isCloudLoaded } = useCloud();
   const { mutateAsync: uploadCloud } = useUploadCloud();
   const uploadButtonRef = useRef<HTMLInputElement>(null);
+  const { fileButtonRef } = useInterfaceTour();
+
+  const { filesTabRef } = useInterfaceTour();
 
   const handleLoadCloudClick = () => {
     if (uploadButtonRef.current) {
@@ -44,7 +48,7 @@ const FilesTab: FC = () => {
   };
 
   return (
-    <>
+    <div ref={filesTabRef}>
       <UploadButton
         className="hidden"
         inputRef={uploadButtonRef}
@@ -57,6 +61,7 @@ const FilesTab: FC = () => {
             icon: loadCloudIcon,
             key: "load-cloud-button",
             label: t("tabs.files.load-cloud"),
+            ref: fileButtonRef,
             action: handleLoadCloudClick,
           },
           {
@@ -103,7 +108,7 @@ const FilesTab: FC = () => {
           },
         ]}
       />
-    </>
+    </div>
   );
 };
 

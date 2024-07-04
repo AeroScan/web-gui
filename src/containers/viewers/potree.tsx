@@ -7,13 +7,17 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 /* HOOKS */
 import useCloud from "../../hooks/useCloud";
+import useInterfaceTour from "../../hooks/useInterfaceTour";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";
 
+
 const PotreeViewer = () => {
   const potree: any = (window as any).Potree;
   const potreeRenderArea = useRef(null);
+  const { viewerRef } = useInterfaceTour();
+  const { sidebarRef } = useInterfaceTour();
 
   const { i18n } = useTranslation();
   const { cloudId, sessionId } = useCloud();
@@ -91,13 +95,13 @@ const PotreeViewer = () => {
   }, [sessionId, cloudId, potree, viewerConfigured, viewer]);
 
   return (
-    <div id="potree-root" className="bg-black !h-[calc(100vh-232px)] w-full">
+    <div id="potree-root" ref={viewerRef} className=" bg-black !h-[calc(100vh-232px)] w-full">
       <div
         ref={potreeRenderArea}
         id="potree_render_area"
         className="!h-[calc(100vh-232px)] w-full !top-[168px]"
       />
-      <div id="potree_sidebar_container" className="!h-[calc(100vh-233px)]" />
+      <div ref={sidebarRef} id="potree_sidebar_container" className="!h-[calc(100vh-233px)]" />
     </div>
   );
 };

@@ -13,11 +13,12 @@ const HeaderTab: FC<HeaderTabProps> = ({ items }) => {
     <div className="w-full h-24 flex items-center justify-center gap-8 mb-4">
       {items
         .filter((i) => i.active)
-        .map(({ key, action, label, icon }) => (
+        .map(({ key, action, label, icon, ref }) => (
           <div
             key={key}
+            ref={ref}
             onClick={action}
-            className="flex flex-col items-center justify-center gap-2 rounded-xl p-2 transition-all duration-300 cursor-pointer hover:bg-green hover:bg-opacity-15 active:opacity-50"
+            className={"flex flex-col items-center justify-center gap-2 rounded-xl p-2 transition-all duration-300 cursor-pointer hover:bg-green hover:bg-opacity-15 active:opacity-50"}
           >
             <img
               src={icon}

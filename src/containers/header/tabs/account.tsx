@@ -4,6 +4,9 @@ import { FC } from "react";
 /* COMPONENTS */
 import HeaderTab from "../../../components/headerTab";
 
+/*HOOKS*/
+import useInterfaceTour from "../../../hooks/useInterfaceTour";
+
 /* UTILS */
 import { useTranslation } from "react-i18next";
 
@@ -15,13 +18,16 @@ const AccountTab: FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  const { accountTabRef } = useInterfaceTour();
+
   const handleLogout = () => {
     localStorage.removeItem("authEmail");
     navigate("/");
   };
 
   return (
-    <HeaderTab
+    <div ref={accountTabRef}>
+      <HeaderTab
       items={[
         {
           active: true,
@@ -32,6 +38,7 @@ const AccountTab: FC = () => {
         },
       ]}
     />
+    </div>
   );
 };
 
