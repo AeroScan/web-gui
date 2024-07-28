@@ -3,7 +3,7 @@ import React, { SyntheticEvent, useRef, useState } from "react";
 
 /* COMPONENTS */
 import FormParameter from "./item";
-import { Button, Modal } from "antd";
+import { Button, Modal, Checkbox, Col, Row  } from "antd";
 import Draggable from "react-draggable";
 import { CloseOutlined } from "@ant-design/icons";
 
@@ -19,7 +19,8 @@ function FormModal<T extends FieldValues>({
   submitText,
   cancelText,
   parameters,
-  blockCondition = false,
+  options,
+  blockCondition = true,
   blockDescription = "",
   onClose,
   onSubmit,
@@ -104,11 +105,11 @@ function FormModal<T extends FieldValues>({
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center"
       >
-        {blockCondition ? (
+        {/* {blockCondition ? (
           <h2 className="w-full text-center text-base break-words mb-4">
             {blockDescription}
           </h2>
-        ) : (
+        ) : ( */}
           <>
             {subtitle && (
               <h2 className="w-full text-justify text-xs break-words mb-4">
@@ -123,8 +124,23 @@ function FormModal<T extends FieldValues>({
                 {...item}
               />
             ))}
+            <Checkbox.Group
+              style={{
+                width: "50%",
+                margin: "20px 0",
+              }}
+              onChange={(values) => console.log(values)}
+            >
+              <Row defaultChecked={true}>
+                {options?.map(item => (
+                  <Col span={6}>
+                    <Checkbox value={item.value}>{item.label}</Checkbox>
+                  </Col>
+                ))}
+              </Row>
+            </Checkbox.Group>
           </>
-        )}
+        {/* )} */}
         <div className="w-full flex justify-center gap-4 mt-4">
           <Button onClick={handleCancel}>{cancelText}</Button>
           {!blockCondition && (

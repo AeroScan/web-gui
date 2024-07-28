@@ -4,4 +4,5 @@ export type EfficientRansacFormData = {
   epsilon: number;
   clusterEpsilon: number;
   normalThreshold: number;
+  primitive: [string];
 };

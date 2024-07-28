@@ -18,6 +18,7 @@ export type FormModalProps<T extends FieldValues> = Pick<
   blockCondition?: boolean;
   blockDescription?: string;
   parameters: ParameterItem<T>[];
+  options?: Option<T>[];
   onSubmit: (data: T) => void;
 };
 
@@ -30,6 +31,13 @@ export type ParameterItem<T> = {
   placeholder: string;
   allowNegative?: boolean;
 };
+
+export type Option<T> = {
+  label: string;
+  value: string;
+  disabled?: boolean;
+}
+
 
 // Parameters type
 export type ParameterProps<T extends FieldValues> = ParameterItem<T> & {
