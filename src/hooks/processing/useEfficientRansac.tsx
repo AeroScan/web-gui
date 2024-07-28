@@ -38,6 +38,7 @@ export const EfficientRansacProvider: FC<IEfficientRansacProviderProps> = ({
       epsilon: 0,
       minPoints: 0,
       normalThreshold: 0,
+      primitive: [""],
     });
 
   // Efficient Ransac handlers
@@ -52,6 +53,7 @@ export const EfficientRansacProvider: FC<IEfficientRansacProviderProps> = ({
       epsilon: 0,
       minPoints: 0,
       normalThreshold: 0,
+      primitive: [""],
     });
   const updateSuggestedParams = (strObj: string) => {
     setSuggestedParams({

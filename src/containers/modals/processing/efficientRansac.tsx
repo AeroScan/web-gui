@@ -37,12 +37,35 @@ const EfficientRansacModal: FC = () => {
       probability: data.probability,
       cluster_epsilon: data.clusterEpsilon,
       normal_threshold: data.normalThreshold,
+      primitive: data.primitive
     });
     closeModal();
   };
 
   return (
     <FormModal<EfficientRansacFormData>
+      options={[
+        {
+          label: t("common.plane"),
+          value: "plane",
+          disabled: true,
+        },
+        {
+          label: t("common.cylinder"),
+          value: "cylinder",
+          disabled: true,
+        },
+        {
+          label: t("common.cone"),
+          value: "cone",
+          disabled: true,
+        },
+        {
+          label: t("common.sphere"),
+          value: "sphere",
+          disabled: true,
+        },
+      ]}
       parameters={[
         {
           id: "probability",
