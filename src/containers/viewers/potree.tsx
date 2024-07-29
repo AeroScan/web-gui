@@ -164,7 +164,7 @@ const PotreeViewer = () => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isEfficientRansacApplied, viewer]);
+  }, [isEfficientRansacApplied, viewer, i18n.language]);
 
   useEffect(() => {
     if (viewer) {
