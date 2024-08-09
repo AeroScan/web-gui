@@ -6,6 +6,7 @@ import HeaderTab from "../../../components/headerTab";
 
 /* CONTAINERS */
 import EfficientRansacModal from "../../modals/processing/efficientRansac";
+import AeroScanModal from "../../modals/processing/aeroScan";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";
@@ -26,6 +27,7 @@ const ProcessingTab: FC = () => {
   return (
     <>
       <EfficientRansacModal />
+      <AeroScanModal />
       <HeaderTab
         items={[
           {
