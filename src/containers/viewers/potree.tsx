@@ -7,10 +7,11 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 /* HOOKS */
 import useCloud from "../../hooks/useCloud";
+import useAeroScan from "../../hooks/processing/useAeroScan";
+import useEfficientRansac from "../../hooks/processing/useEfficientRansac";
 
 /* UTILS */
 import { useTranslation } from "react-i18next";
-import useEfficientRansac from "../../hooks/processing/useEfficientRansac";
 
 const PotreeViewer = () => {
   const potree: any = (window as any).Potree;
@@ -19,6 +20,7 @@ const PotreeViewer = () => {
   const { i18n, t } = useTranslation();
   const { cloudId, sessionId, viewType, annotations } = useCloud();
   const { applied: isEfficientRansacApplied } = useEfficientRansac();
+  const { applied: isAeroScanApplied } = useAeroScan();
 
   const [viewer, setViewer] = useState<any>(null);
   const [pageLoaded, setPageLoaded] = useState<boolean>(false);
@@ -78,7 +80,7 @@ const PotreeViewer = () => {
           `${process.env.REACT_APP_SERVER_URL}:${
             process.env.REACT_APP_FILES_PORT
           }/clouds/${sessionId}/${cloudId}/output${
-            isEfficientRansacApplied ? `_${viewType}` : ""
+            isEfficientRansacApplied || isAeroScanApplied ? `_${viewType}` : ""
           }/metadata.json`
         )
         .then(
@@ -127,11 +129,15 @@ const PotreeViewer = () => {
     annotations,
     viewerConfigured,
     isEfficientRansacApplied,
+    isAeroScanApplied,
   ]);
 
   useEffect(() => {
     if (viewer) {
-      if (isEfficientRansacApplied && viewType === "types") {
+      if (
+        (isEfficientRansacApplied || isAeroScanApplied) &&
+        viewType === "types"
+      ) {
         viewer.setClassifications([
           {
             visible: true,
@@ -164,7 +170,7 @@ const PotreeViewer = () => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isEfficientRansacApplied, viewer]);
+  }, [isEfficientRansacApplied, isAeroScanApplied, viewer]);
 
   useEffect(() => {
     if (viewer) {
@@ -185,3 +191,4 @@ const PotreeViewer = () => {
 };
 
 export default PotreeViewer;
+

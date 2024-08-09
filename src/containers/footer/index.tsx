@@ -7,6 +7,7 @@ import { Col, Row } from "antd";
 /* HOOKS */
 import useCloud from "../../hooks/useCloud";
 import useStatus from "../../hooks/useStatus";
+import useAeroScan from "../../hooks/processing/useAeroScan";
 import useEfficientRansac from "../../hooks/processing/useEfficientRansac";
 
 /* UTILS */
@@ -17,12 +18,13 @@ const Footer: FC = () => {
   const { t } = useTranslation();
   const { status } = useStatus();
   const { applied: isEfficientRansacApplied } = useEfficientRansac();
+  const { applied: isAeroScanApplied } = useAeroScan();
   const { conesCount, plansCount, spheresCount, cylindersCount } = useCloud();
 
   return (
     <Row className="w-full h-16 bg-light-grey px-16">
       <Col span={8}>
-        {isEfficientRansacApplied && (
+        {(isEfficientRansacApplied || isAeroScanApplied) && (
           <Row justify="start" align="middle" className="h-16">
             <span className="font-bold text-brown text-base">
               <span className="text-yellow">{`${conesCount} ${t(
@@ -60,3 +62,4 @@ const Footer: FC = () => {
 };
 
 export default Footer;
+

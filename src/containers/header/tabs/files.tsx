@@ -7,6 +7,7 @@ import UploadButton from "../../../components/uploadButton";
 
 /* HOOKS */
 import useCloud from "../../../hooks/useCloud";
+import useAeroScan from "../../../hooks/processing/useAeroScan";
 import useEfficientRansac from "../../../hooks/processing/useEfficientRansac";
 
 /* API */
@@ -35,6 +36,7 @@ const FilesTab: FC = () => {
   const { saveRansacResults } = useSaveRansacResults();
   const { mutateAsync: uploadCloud } = useUploadCloud();
   const { applied: isEfficientRansacApplied } = useEfficientRansac();
+  const { applied: isAeroScanApplied } = useAeroScan();
   const {
     viewType,
     sessionId,
@@ -128,7 +130,7 @@ const FilesTab: FC = () => {
           {
             active:
               isCloudLoaded &&
-              isEfficientRansacApplied &&
+              (isEfficientRansacApplied || isAeroScanApplied) &&
               viewType === "instances" &&
               pathname.includes("pointCloud"),
             icon: viewCloudIcon,
@@ -139,7 +141,7 @@ const FilesTab: FC = () => {
           {
             active:
               isCloudLoaded &&
-              isEfficientRansacApplied &&
+              (isEfficientRansacApplied || isAeroScanApplied) &&
               viewType === "types" &&
               pathname.includes("pointCloud"),
             icon: viewCloudIcon,
@@ -174,7 +176,7 @@ const FilesTab: FC = () => {
             action: handleSaveCadClick,
           },
           {
-            active: isCloudLoaded && isEfficientRansacApplied,
+            active: isCloudLoaded && (isEfficientRansacApplied || isAeroScanApplied),
             icon: saveResultsIcon,
             key: "save-results-button",
             label: t("tabs.files.save-results"),
@@ -187,3 +189,4 @@ const FilesTab: FC = () => {
 };
 
 export default FilesTab;
+
