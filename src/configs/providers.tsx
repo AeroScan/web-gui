@@ -13,6 +13,7 @@ import { CentralizationProvider } from "../hooks/preProcessing/useCentralization
 import { AlignmentProvider } from "../hooks/preProcessing/useAlignment";
 import { NoiseAddProvider } from "../hooks/preProcessing/useNoiseAdd";
 import { EfficientRansacProvider } from "../hooks/processing/useEfficientRansac";
+import { AeroScanProvider } from "../hooks/processing/useAeroScan";
 
 // Props interface
 interface GlobalProviderProps {
@@ -30,7 +31,9 @@ const GlobalProviders: FC<GlobalProviderProps> = ({ children }) => (
                 <AlignmentProvider>
                   <NoiseAddProvider>
                     <EfficientRansacProvider>
-                      <StatusProvider>{children}</StatusProvider>
+                      <AeroScanProvider>
+                        <StatusProvider>{children}</StatusProvider>
+                      </AeroScanProvider>
                     </EfficientRansacProvider>
                   </NoiseAddProvider>
                 </AlignmentProvider>
@@ -44,3 +47,4 @@ const GlobalProviders: FC<GlobalProviderProps> = ({ children }) => (
 );
 
 export default GlobalProviders;
+
