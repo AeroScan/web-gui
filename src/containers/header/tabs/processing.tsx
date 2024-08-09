@@ -11,6 +11,7 @@ import EfficientRansacModal from "../../modals/processing/efficientRansac";
 import { useTranslation } from "react-i18next";
 
 /* HOOKS */
+import useAeroScan from "../../../hooks/processing/useAeroScan";
 import useEfficientRansac from "../../../hooks/processing/useEfficientRansac";
 
 /* ASSETS */
@@ -20,6 +21,7 @@ import efficientRansacIcon from "../../../assets/icons/processing/efficient-rans
 const ProcessingTab: FC = () => {
   const { t } = useTranslation();
   const { openModal: openRansacModal } = useEfficientRansac();
+  const { openModal: openAeroScanModal } = useAeroScan();
 
   return (
     <>
@@ -38,7 +40,7 @@ const ProcessingTab: FC = () => {
             icon: aeroScanIcon,
             key: "aeroscan-button",
             label: t("tabs.processing.aeroscan"),
-            action: () => console.log(t("tabs.processing.aeroscan")),
+            action: openAeroScanModal,
           },
         ]}
       />
@@ -47,3 +49,4 @@ const ProcessingTab: FC = () => {
 };
 
 export default ProcessingTab;
+
