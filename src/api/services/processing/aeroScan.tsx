@@ -30,7 +30,7 @@ const useApplyAeroScan = () => {
       values: params,
     };
     const { data: cloud } = await apiClient.post<ProcessingResponseDto>(
-      "/effRansac",
+      "/ls3dc",
       body
     );
     return cloud;
