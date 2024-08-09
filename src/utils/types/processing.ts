@@ -5,3 +5,6 @@ export type EfficientRansacFormData = {
   clusterEpsilon: number;
   normalThreshold: number;
 };
+
+export type AeroScanFormData = {};
+

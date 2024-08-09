@@ -34,7 +34,7 @@ const ProcessingTab: FC = () => {
             action: openRansacModal,
           },
           {
-            active: false,
+            active: true,
             icon: aeroScanIcon,
             key: "aeroscan-button",
             label: t("tabs.processing.aeroscan"),

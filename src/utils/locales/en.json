@@ -232,8 +232,10 @@
     "statistical-removal-failed": "Error applying statistical removal",
     "voxel-grid-applied": "Voxel grid applied",
     "voxel-grid-failed": "Error applying voxel grid",
-    "efficient-ransace-applied": "Efficient ransac applied",
-    "efficient-ransace-failed": "Error applying efficient ransac"
+    "efficient-ransac-applied": "Efficient ransac applied",
+    "efficient-ransac-failed": "Error applying efficient ransac",
+    "aeroscan-applied": "AeroScan algorithm applied",
+    "aeroscan-failed": "Error applying AeroScan algorithm"
   },
   "notifications": {
     "loading": {
@@ -248,7 +250,8 @@
       "reescale": "Applying reescale",
       "statistical-removal": "Applying statistical removal",
       "voxel-grid": "Applying voxel grid",
-      "efficient-ransac": "Applying efficient ransac"
+      "efficient-ransac": "Applying efficient ransac",
+      "aeroscan": "Applying AeroScan algorithm"
     },
     "success": {
       "load-cloud": "Cloud successfully loaded!",
@@ -263,6 +266,7 @@
       "statistical-removal": "Statistical removal successfully applied!",
       "voxel-grid": "Voxel grid successfully applied!",
       "efficient-ransac": "Efficient ransac successfully applied!",
+      "aeroscan": "AeroScan algorithm successfully applied!",
       "password-generated": "Password successfully generated and copied to the clipboard!"
     },
     "warning": {
@@ -281,7 +285,8 @@
       "reescale": "Error applying reescale",
       "statistical-removal": "Error applying statistical removal",
       "voxel-grid": "Error applying voxel grid",
-      "efficient-ransac": "Error applying efficient ransac"
+      "efficient-ransac": "Error applying efficient ransac",
+      "aeroscan": "Error applying AeroScan algorithm"
     }
   },
   "common": {
@@ -297,3 +302,4 @@
     "credits": "Credits"
   }
 }
+

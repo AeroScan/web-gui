@@ -23,3 +23,11 @@ export type RansacResultsDto = {
   error: boolean;
   message: string;
 };
+
+export type AeroScanParams = {};
+
+export type AeroScanResultsDto = {
+  data: string;
+  error: boolean;
+  message: string;
+};
