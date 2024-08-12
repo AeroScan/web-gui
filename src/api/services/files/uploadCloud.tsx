@@ -15,6 +15,8 @@ import useNormalEstimation from "../../../hooks/preProcessing/useNormalEstimatio
 import { notification } from "antd";
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import useAeroScan from "../../../hooks/processing/useAeroScan";
+import useEfficientRansac from "../../../hooks/processing/useEfficientRansac";
 
 const useUploadCloud = () => {
   const { t } = useTranslation();
@@ -24,6 +26,8 @@ const useUploadCloud = () => {
   const { updateSuggestedParams: updateVoxelGridParams } = useVoxelGrid();
   const { updateSuggestedParams: updateNormalEstimationParams } =
     useNormalEstimation();
+  const { clearApplied: clearAeroScanApplied } = useAeroScan();
+  const { clearApplied: clearEfficientRansacApplied } = useEfficientRansac();
 
   const uploadCloud = async (file: FormData) => {
     updateLoadingStatus(t("notifications.loading.load-cloud"));
@@ -36,11 +40,12 @@ const useUploadCloud = () => {
         },
       }
     );
-    console.log(cloud);
     return cloud;
   };
 
   const handleSuccess = (data: UploadCloudResponseDto) => {
+    clearAeroScanApplied();
+    clearEfficientRansacApplied();
     updateCloudId(data.uuid);
     updateSessionId(data.session);
     updateStatus("cloud-loaded");
@@ -66,3 +71,4 @@ const useUploadCloud = () => {
 };
 
 export default useUploadCloud;
+
