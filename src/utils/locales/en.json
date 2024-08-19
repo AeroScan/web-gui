@@ -90,6 +90,11 @@
         }
       }
     },
+    "aeroscan": {
+      "title": "AeroScan",
+      "subtitle": "The AeroScan algorithm is a machine learning-based algorithm that performs the primitivization of point clouds.",
+      "blockDescription": "You need to run the normal estimation filter before running the AeroScan algorith."
+    },
     "cropBox": {
       "title": "Crop Box",
       "subtitle": "The Crop Box filter can be applied to crop just the region of interest in the input point cloud. The parameters must be hand-writed, but the values to be used can be choosed with help of the tool called Point measurement in the point cloud visualization.",

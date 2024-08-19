@@ -90,7 +90,7 @@
         }
       }
     },
-    "aroscan": {
+    "aeroscan": {
       "title": "AeroScan",
       "subtitle": "O algoritmo AeroScan é um algoritmo baseado em aprendizado de máquina que faz a primitivação de nuvens de pontos.",
       "blockDescription": "Você precisa executar o Normal Estimation antes de rodar o AeroScan"
