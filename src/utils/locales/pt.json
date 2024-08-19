@@ -90,6 +90,11 @@
         }
       }
     },
+    "aroscan": {
+      "title": "AeroScan",
+      "subtitle": "O algoritmo AeroScan é um algoritmo baseado em aprendizado de máquina que faz a primitivação de nuvens de pontos.",
+      "blockDescription": "Você precisa executar o Normal Estimation antes de rodar o AeroScan"
+    },
     "cropBox": {
       "title": "Crop Box",
       "subtitle": "O filtro Crop Box pode ser aplicado para recortar apenas a região de interesse na nuvem de pontos de entrada. Os parâmetros devem ser escritos à mão, mas os valores a serem usados podem ser escolhidos com a ajuda da ferramenta chamada Medição de Pontos na visualização da nuvem de pontos.",
